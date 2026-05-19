@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resumen — Biología General</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --primary: #1a6b4a;
+      --primary-light: #2d9466;
+      --accent: #e8f5ee;
+      --accent2: #f0f9f4;
+      --text: #1c2b22;
+      --text-soft: #4a6355;
+      --border: #c3ddd0;
+      --card-bg: #ffffff;
+      --shadow: 0 2px 12px rgba(26,107,74,0.10);
+      --radius: 12px;
+      --sidebar-w: 260px;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f4faf7;
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== SIDEBAR ===== */
+    #sidebar {
+      position: fixed; top: 0; left: 0;
+      width: var(--sidebar-w);
+      height: 100vh;
+      background: var(--primary);
+      color: #fff;
+      overflow-y: auto;
+      padding: 0 0 24px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+    #sidebar-header {
+      padding: 24px 20px 16px;
+      background: rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    #sidebar-header h1 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
+    #sidebar-header p { font-size: 0.75rem; opacity: 0.75; margin-top: 4px; }
+    #sidebar nav { padding: 12px 0; }
+    #sidebar nav a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 20px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: background 0.15s;
+      border-left: 3px solid transparent;
+    }
+    #sidebar nav a:hover,
+    #sidebar nav a.active {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border-left-color: #7de8b5;
+    }
+    #sidebar nav a .icon { font-size: 1rem; flex-shrink: 0; }
+    #sidebar nav .section-label {
+      padding: 14px 20px 4px;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    /* ===== MAIN ===== */
+    #main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 32px 40px 60px;
+      max-width: calc(100% - var(--sidebar-w));
+    }
+
+    /* ===== TOP BAR ===== */
+    #topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap; gap: 12px;
+    }
+    #topbar h2 { font-size: 1.5rem; color: var(--primary); }
+    #topbar p { font-size: 0.85rem; color: var(--text-soft); }
+    #btn-pdf {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      transition: background 0.2s;
+    }
+    #btn-pdf:hover { background: var(--primary-light); }
+
+    /* ===== FILE INDEX ===== */
+    #file-index {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .file-chip {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .file-chip:hover { box-shadow: var(--shadow); border-color: var(--primary-light); }
+    .file-chip .ext {
+      font-size: 0.65rem; font-weight: 700;
+      padding: 2px 6px; border-radius: 4px; flex-shrink: 0;
+    }
+    .ext-pdf { background: #fde8e8; color: #c0392b; }
+    .ext-docx { background: #e8eeff; color: #2563eb; }
+    .ext-pptx { background: #fff3e0; color: #e65c00; }
+    .file-chip span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin-bottom: 56px;
+      scroll-margin-top: 24px;
+    }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      border-left: 4px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title .badge {
+      font-size: 0.65rem; font-weight: 600;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 3px 8px; border-radius: 20px;
+    }
+    .subsection-title {
+      font-size: 1rem; font-weight: 700;
+      color: var(--primary-light);
+      margin: 22px 0 10px;
+    }
+    p { line-height: 1.7; color: var(--text-soft); margin-bottom: 10px; font-size: 0.9rem; }
+
+    /* ===== CARDS GRID ===== */
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .card h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 8px; font-weight: 700; }
+    .card p { font-size: 0.82rem; color: var(--text-soft); margin: 0; }
+
+    /* ===== DEFINITION BOXES ===== */
+    .def-box {
+      background: var(--accent2);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-size: 0.88rem;
+    }
+    .def-box strong { color: var(--primary); display: block; margin-bottom: 4px; font-size: 0.92rem; }
+    .def-box p { margin: 0; color: var(--text-soft); }
+
+    /* ===== TABLE ===== */
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    thead { background: var(--primary); color: #fff; }
+    th { padding: 10px 14px; text-align: left; font-weight: 600; }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--accent2); }
+
+    /* ===== CONCEPT MAP WRAPPER ===== */
+    .mermaid-wrap {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    .mermaid-wrap > p.map-label {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--primary-light); font-weight: 600; margin-bottom: 12px;
+    }
+    .mermaid { max-width: 100%; }
+
+    /* ===== DIVIDER ===== */
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: #fff; }
+      #sidebar { display: none; }
+      #main { margin-left: 0; max-width: 100%; padding: 20px; }
+      #topbar #btn-pdf { display: none; }
+      .section { break-inside: avoid; }
+      .mermaid-wrap { break-inside: avoid; }
+      .card { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+      #file-index { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside id="sidebar">
+  <div id="sidebar-header">
+    <h1>Biología General</h1>
+    <p>Resumen completo de unidades</p>
+  </div>
+  <nav>
+    <div class="section-label">Índice</div>
+    <a href="#archivos"><span class="icon">📁</span>Archivos</a>
+
+    <div class="section-label">Unidades</div>
+    <a href="#u1"><span class="icon">🌱</span>Unidad 1 — Biología General</a>
+    <a href="#clasificacion"><span class="icon">🌳</span>Clasificación de seres vivos</a>
+    <a href="#composicion"><span class="icon">⚗️</span>Composición química</a>
+    <a href="#acidos"><span class="icon">🧬</span>Ácidos nucleicos y lípidos</a>
+
+    <div class="section-label">La Célula</div>
+    <a href="#celula"><span class="icon">🔬</span>La Célula — Generalidades</a>
+    <a href="#procariontes"><span class="icon">🦠</span>Procariontes vs Eucariontes</a>
+    <a href="#biomembranas"><span class="icon">🧫</span>Biomembranas y transporte</a>
+    <a href="#diferenciaciones"><span class="icon">🔗</span>Diferenciaciones de membrana</a>
+
+    <div class="section-label">Organelas</div>
+    <a href="#citoplasma"><span class="icon">💧</span>Citoplasma</a>
+    <a href="#endomembranas"><span class="icon">🏭</span>Sistema de endomembranas</a>
+    <a href="#lisosomas"><span class="icon">♻️</span>Lisosomas y peroxisomas</a>
+    <a href="#nucleo"><span class="icon">🎯</span>Núcleo, mitocondrias y plastos</a>
+    <a href="#transporte"><span class="icon">🚚</span>Mecanismos de transporte</a>
+
+    <div class="section-label">Actividades</div>
+    <a href="#actividades"><span class="icon">📝</span>Actividades</a>
+  </nav>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main id="main">
+
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <div>
+      <h2>Resumen de Biología General</h2>
+      <p>16 archivos &nbsp;·&nbsp; Definiciones detalladas &nbsp;·&nbsp; Mapas conceptuales</p>
+    </div>
+    <button id="btn-pdf" onclick="window.print()">
+      🖨️ Exportar a PDF
+    </button>
+  </div>
+
+  <!-- ARCHIVOS -->
+  <div id="archivos" class="section">
+    <div class="section-title">📁 Archivos de la carpeta</div>
+    <div id="file-index">
+      <a class="file-chip" href="#u1"><span class="ext ext-pdf">PDF</span><span>Teórica 1 — Unidad 1</span></a>
+      <a class="file-chip" href="#clasificacion"><span class="ext ext-pdf">PDF</span><span>Clasificación de seres vivos</span></a>
+      <a class="file-chip" href="#composicion"><span class="ext ext-pdf">PDF</span><span>Composición química — Parte 1</span></a>
+      <a class="file-chip" href="#acidos"><span class="ext ext-pdf">PDF</span><span>Ácidos nucleicos y lípidos</span></a>
+      <a class="file-chip" href="#celula"><span class="ext ext-pdf">PDF</span><span>Teórica 3 — La Célula</span></a>
+      <a class="file-chip" href="#biomembranas"><span class="ext ext-pdf">PDF</span><span>Teórica 3 — Biomembranas y transporte</span></a>
+      <a class="file-chip" href="#diferenciaciones"><span class="ext ext-pdf">PDF</span><span>Diferenciaciones de membrana</span></a>
+      <a class="file-chip" href="#citoplasma"><span class="ext ext-pdf">PDF</span><span>Citoplasma</span></a>
+      <a class="file-chip" href="#endomembranas"><span class="ext ext-pdf">PDF</span><span>Sistema de endomembranas</span></a>
+      <a class="file-chip" href="#lisosomas"><span class="ext ext-pdf">PDF</span><span>Lisosomas y peroxisomas</span></a>
+      <a class="file-chip" href="#nucleo"><span class="ext ext-pdf">PDF</span><span>Núcleo, mitocondrias y plastos</span></a>
+      <a class="file-chip" href="#celula"><span class="ext ext-pdf">PDF</span><span>Células — Repaso</span></a>
+      <a class="file-chip" href="#procariontes"><span class="ext ext-pptx">PPTX</span><span>Procariontes vs Eucariontes y Reinos</span></a>
+      <a class="file-chip" href="#transporte"><span class="ext ext-pptx">PPTX</span><span>Mecanismos de transporte</span></a>
+      <a class="file-chip" href="#actividades"><span class="ext ext-docx">DOCX</span><span>Actividad organelas</span></a>
+      <a class="file-chip" href="#actividades"><span class="ext ext-docx">DOCX</span><span>Actividad Organización Celular</span></a>
+    </div>
+  </div>
+
+  <!-- ================================
+       UNIDAD 1 — BIOLOGÍA GENERAL
+  ================================ -->
+  <div id="u1" class="section">
+    <div class="section-title">🌱 Unidad 1 — Biología General <span class="badge">Teórica 1</span></div>
+
+    <p>La biología es la ciencia que estudia a los seres vivos en todos sus niveles de organización. La <strong>Biología General</strong> abarca los conceptos fundamentales que permiten comprender la vida desde sus moléculas constituyentes hasta los ecosistemas.</p>
+
+    <div class="subsection-title">Niveles de organización de los seres vivos</div>
+    <div class="cards">
+      <div class="card">
+        <h4>🔬 Nivel molecular</h4>
+        <p>Átomos y moléculas orgánicas: agua, carbohidratos, lípidos, proteínas y ácidos nucleicos.</p>
+      </div>
+      <div class="card">
+        <h4>🧬 Nivel celular</h4>
+        <p>La célula es la unidad estructural y funcional de todos los seres vivos.</p>
+      </div>
+      <div class="card">
+        <h4>🫀 Nivel tisular</h4>
+        <p>Conjunto de células con estructura y función similares formando tejidos.</p>
+      </div>
+      <div class="card">
+        <h4>🫁 Nivel orgánico</h4>
+        <p>Conjunto de tejidos que forman órganos con funciones específicas.</p>
+      </div>
+      <div class="card">
+        <h4>🧍 Nivel sistémico</h4>
+        <p>Conjunto de órganos que interactúan para cumplir una función mayor.</p>
+      </div>
+      <div class="card">
+        <h4>🌍 Nivel de organismo</h4>
+        <p>Individuo completo, resultado de la coordinación de todos los sistemas.</p>
+      </div>
+    </div>
+
+    <div class="subsection-title">Propiedades de los seres vivos</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Propiedad</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Composición química</strong></td><td>Formados por moléculas orgánicas (C, H, O, N, P, S) e inorgánicas</td></tr>
+          <tr><td><strong>Organización celular</strong></td><td>Toda forma de vida está compuesta por células</td></tr>
+          <tr><td><strong>Metabolismo</strong></td><td>Conjunto de reacciones químicas que mantienen la vida (anabolismo + catabolismo)</td></tr>
+          <tr><td><strong>Ciclo celular</strong></td><td>Capacidad de crecer y reproducirse</td></tr>
+          <tr><td><strong>Herencia</strong></td><td>Transmisión de información genética a la descendencia</td></tr>
+          <tr><td><strong>Nutrición</strong></td><td>Capacidad de obtener y procesar materia y energía del ambiente</td></tr>
+          <tr><td><strong>Enzimas</strong></td><td>Catalizadores biológicos que regulan las reacciones metabólicas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Niveles de organización</p>
+      <div class="mermaid">
+graph TD
+    A["🌱 SERES VIVOS"] --> B["Composición química"]
+    A --> C["Organización celular"]
+    A --> D["Metabolismo"]
+    A --> E["Ciclo celular"]
+    A --> F["Herencia"]
+    A --> G["Nutrición"]
+    C --> H["Células → Tejidos"]
+    H --> I["Tejidos → Órganos"]
+    I --> J["Órganos → Sistemas"]
+    J --> K["Sistemas → Organismo"]
+    D --> L["Anabolismo"]
+    D --> M["Catabolismo"]
+    style A fill:#1a6b4a,color:#fff
+    style C fill:#2d9466,color:#fff
+    style D fill:#2d9466,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       CLASIFICACIÓN DE SERES VIVOS
+  ================================ -->
+  <div id="clasificacion" class="section">
+    <div class="section-title">🌳 Clasificación de los seres vivos <span class="badge">PDF</span></div>
+
+    <p>La clasificación biológica moderna abandona el sistema de los «cinco reinos» en favor de un enfoque basado en el análisis del <strong>ARN ribosómico</strong> (ARNr 16S y 18S), propuesto por <strong>Carl Woese en 1990</strong>. El resultado es una clasificación en <strong>3 dominios</strong>.</p>
+
+    <div class="def-box">
+      <strong>Dominio Archaea (Arqueas)</strong>
+      <p>Organismos procariotas unicelulares. Difieren genéticamente de las bacterias: su pared celular carece de peptidoglicano y sus lípidos de membrana presentan enlaces éter. Muchos viven en ambientes extremos (termófilos, halófilos, metanógenos).</p>
+    </div>
+    <div class="def-box">
+      <strong>Dominio Bacteria (Bacterias)</strong>
+      <p>Procariotas unicelulares con pared celular de peptidoglicano. Presentan gran diversidad metabólica: autótrofas, heterótrofas, aeróbicas, anaeróbicas. Incluyen las cianobacterias, proteobacterias, firmicutes, etc.</p>
+    </div>
+    <div class="def-box">
+      <strong>Dominio Eukarya (Eucariotas)</strong>
+      <p>Organismos cuyas células poseen núcleo verdadero delimitado por envoltura nuclear. Incluye animales, plantas, hongos y protistas. Se organizan en múltiples supergrupos basados en filogenia molecular.</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Los 3 dominios</p>
+      <div class="mermaid">
+graph TD
+    ROOT["🌍 SERES VIVOS"] --> A["Dominio ARCHAEA"]
+    ROOT --> B["Dominio BACTERIA"]
+    ROOT --> C["Dominio EUKARYA"]
+    A --> A1["Procariotas sin peptidoglicano"]
+    A --> A2["Ambientes extremos"]
+    B --> B1["Procariotas con peptidoglicano"]
+    B --> B2["Alta diversidad metabólica"]
+    C --> C1["Animalia"]
+    C --> C2["Plantae"]
+    C --> C3["Fungi"]
+    C --> C4["Protista"]
+    ROOT --> V["Virus (cuasi-seres vivos)"]
+    style ROOT fill:#1a6b4a,color:#fff
+    style A fill:#e8763a,color:#fff
+    style B fill:#3a7be8,color:#fff
+    style C fill:#2d9466,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       COMPOSICIÓN QUÍMICA
+  ================================ -->
+  <div id="composicion" class="section">
+    <div class="section-title">⚗️ Composición química de los seres vivos <span class="badge">Parte 1</span></div>
+
+    <p>Los seres vivos están formados principalmente por <strong>carbono, hidrógeno, oxígeno y nitrógeno</strong>. Sus moléculas se clasifican en inorgánicas (agua, sales minerales) y orgánicas (biomoléculas).</p>
+
+    <div class="cards">
+      <div class="card">
+        <h4>💧 Agua</h4>
+        <p>Molécula más abundante. Solvente universal, medio de reacciones, regulador térmico, transporte de nutrientes.</p>
+      </div>
+      <div class="card">
+        <h4>🍞 Carbohidratos (glúcidos)</h4>
+        <p>Fuente primaria de energía. Monosacáridos (glucosa), disacáridos (sacarosa) y polisacáridos (almidón, glucógeno, celulosa).</p>
+      </div>
+      <div class="card">
+        <h4>🧈 Lípidos</h4>
+        <p>Reserva energética, componentes de membrana (fosfolípidos), hormonas esteroides. Incluyen grasas, aceites y ceras.</p>
+      </div>
+      <div class="card">
+        <h4>🔩 Proteínas</h4>
+        <p>Polímeros de aminoácidos. Funciones estructurales, enzimáticas, de transporte, defensa inmune y regulación.</p>
+      </div>
+      <div class="card">
+        <h4>🧬 Ácidos nucleicos</h4>
+        <p>ADN (portador de información genética) y ARN (intermediario en la expresión génica). Compuestos por nucleótidos.</p>
+      </div>
+      <div class="card">
+        <h4>⚡ Enzimas</h4>
+        <p>Proteínas catalizadoras que aceleran reacciones metabólicas reduciendo la energía de activación. Altamente específicas.</p>
+      </div>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Biomoléculas</p>
+      <div class="mermaid">
+graph LR
+    BIO["BIOMOLÉCULAS"] --> IN["Inorgánicas"]
+    BIO --> OR["Orgánicas"]
+    IN --> W["Agua"]
+    IN --> S["Sales minerales"]
+    OR --> C["Carbohidratos"]
+    OR --> L["Lípidos"]
+    OR --> P["Proteínas"]
+    OR --> AN["Ácidos nucleicos"]
+    C --> C1["Monosacáridos"]
+    C --> C2["Disacáridos"]
+    C --> C3["Polisacáridos"]
+    P --> P1["Enzimas"]
+    P --> P2["Estructurales"]
+    P --> P3["Hormonas peptídicas"]
+    AN --> D["ADN"]
+    AN --> R["ARN"]
+    style BIO fill:#1a6b4a,color:#fff
+    style OR fill:#2d9466,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       ÁCIDOS NUCLEICOS Y LÍPIDOS
+  ================================ -->
+  <div id="acidos" class="section">
+    <div class="section-title">🧬 Ácidos nucleicos y lípidos <span class="badge">PDF</span></div>
+
+    <div class="subsection-title">Ácidos nucleicos</div>
+    <p>Los ácidos nucleicos son polímeros de <strong>nucleótidos</strong>. Cada nucleótido está formado por un azúcar pentosa, un grupo fosfato y una base nitrogenada.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Característica</th><th>ADN</th><th>ARN</th></tr></thead>
+        <tbody>
+          <tr><td>Azúcar</td><td>Desoxirribosa</td><td>Ribosa</td></tr>
+          <tr><td>Bases</td><td>A, T, G, C</td><td>A, U, G, C</td></tr>
+          <tr><td>Estructura</td><td>Doble hélice</td><td>Cadena simple</td></tr>
+          <tr><td>Función</td><td>Almacenar información genética</td><td>Síntesis proteica (ARNm, ARNt, ARNr)</td></tr>
+          <tr><td>Localización</td><td>Núcleo, mitocondrias, cloroplastos</td><td>Núcleo y citoplasma</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Lípidos</div>
+    <div class="cards">
+      <div class="card">
+        <h4>🔶 Fosfolípidos</h4>
+        <p>Componentes principales de las membranas biológicas. Poseen cabeza polar hidrofílica y dos colas apolares hidrofóbicas. Forman bicapas espontáneamente en medio acuoso.</p>
+      </div>
+      <div class="card">
+        <h4>🔷 Esteroles (colesterol)</h4>
+        <p>Regulan la fluidez de la membrana plasmática. Precursor de hormonas esteroides, vitamina D y ácidos biliares.</p>
+      </div>
+      <div class="card">
+        <h4>🟠 Triacilgliceroles</h4>
+        <p>Reserva energética principal. Forman el tejido adiposo. Almacenan más energía por gramo que los carbohidratos.</p>
+      </div>
+      <div class="card">
+        <h4>🟡 Ceras</h4>
+        <p>Ésteres de ácidos grasos y alcoholes de cadena larga. Función protectora e impermeabilizante (cubierta de hojas, piel, exoesqueleto de insectos).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       LA CÉLULA — GENERALIDADES
+  ================================ -->
+  <div id="celula" class="section">
+    <div class="section-title">🔬 La Célula — Generalidades <span class="badge">Teórica 3</span></div>
+
+    <p>La <strong>célula</strong> es la unidad estructural, funcional y de origen de todos los seres vivos. Toda célula proviene de otra célula preexistente (<em>teoría celular</em>).</p>
+
+    <div class="def-box">
+      <strong>Teoría celular (Schleiden, Schwann y Virchow, s. XIX)</strong>
+      <p>1. Todos los seres vivos están formados por células. 2. La célula es la unidad estructural y funcional de la vida. 3. Toda célula proviene de una célula preexistente.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Membrana plasmática</h4>
+        <p>Bicapa lipídica con proteínas. Delimita la célula y regula el intercambio de sustancias con el entorno.</p>
+      </div>
+      <div class="card">
+        <h4>Citoplasma</h4>
+        <p>Región entre la membrana y el núcleo. Contiene el citosol, el citoesqueleto y las organelas.</p>
+      </div>
+      <div class="card">
+        <h4>Material genético</h4>
+        <p>En procariontes: ADN circular libre en el nucleoide. En eucariontes: ADN lineal en el núcleo rodeado de envoltura nuclear.</p>
+      </div>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Componentes de la célula eucarionte</p>
+      <div class="mermaid">
+graph TD
+    CEL["🔬 CÉLULA EUCARIONTE"] --> MEM["Membrana plasmática"]
+    CEL --> CYT["Citoplasma"]
+    CEL --> NUC["Núcleo"]
+    CYT --> CS["Citosol"]
+    CYT --> CK["Citoesqueleto"]
+    CYT --> ORG["Organelas"]
+    ORG --> RE["Retículo endoplasmático"]
+    ORG --> AG["Aparato de Golgi"]
+    ORG --> LYS["Lisosomas"]
+    ORG --> MIT["Mitocondrias"]
+    ORG --> RIB["Ribosomas"]
+    ORG --> CLO["Cloroplastos (vegetal)"]
+    NUC --> ENV["Envoltura nuclear"]
+    NUC --> CRO["Cromatina (ADN)"]
+    NUC --> NUO["Nucléolo"]
+    style CEL fill:#1a6b4a,color:#fff
+    style NUC fill:#1a6b4a,color:#fff
+    style ORG fill:#2d9466,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       PROCARIONTES VS EUCARIONTES
+  ================================ -->
+  <div id="procariontes" class="section">
+    <div class="section-title">🦠 Procariontes vs Eucariontes <span class="badge">PPTX</span></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Característica</th><th>Célula Procarionte</th><th>Célula Eucarionte</th></tr></thead>
+        <tbody>
+          <tr><td>Núcleo</td><td>Ausente (nucleoide)</td><td>Presente (con envoltura nuclear)</td></tr>
+          <tr><td>Tamaño</td><td>1–10 µm</td><td>10–100 µm</td></tr>
+          <tr><td>ADN</td><td>Circular, sin histonas</td><td>Lineal, con histonas (cromatina)</td></tr>
+          <tr><td>Ribosomas</td><td>70S (50S + 30S)</td><td>80S (60S + 40S)</td></tr>
+          <tr><td>Organelas con membrana</td><td>Ausentes</td><td>Presentes (RE, Golgi, mitocondrias…)</td></tr>
+          <tr><td>Pared celular</td><td>Peptidoglicano (bacterias)</td><td>Celulosa (plantas), quitina (hongos)</td></tr>
+          <tr><td>División celular</td><td>Fisión binaria</td><td>Mitosis / meiosis</td></tr>
+          <tr><td>Ejemplos</td><td>Bacterias, Arqueas</td><td>Animales, plantas, hongos, protistas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Los 5 reinos (clasificación clásica)</div>
+    <div class="cards">
+      <div class="card"><h4>🦁 Animalia</h4><p>Eucariotas, pluricelulares, heterótrofos, sin pared celular.</p></div>
+      <div class="card"><h4>🌿 Plantae</h4><p>Eucariotas, pluricelulares, autótrofas por fotosíntesis. Pared de celulosa.</p></div>
+      <div class="card"><h4>🍄 Fungi</h4><p>Eucariotas, heterotrófos por absorción. Pared de quitina.</p></div>
+      <div class="card"><h4>🦠 Protista</h4><p>Eucariotas unicelulares o coloniales. Extremadamente diversos.</p></div>
+      <div class="card"><h4>🔬 Monera</h4><p>Procariotas (bacterias y arqueas). Hoy sustituido por los dominios Archaea y Bacteria.</p></div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       BIOMEMBRANAS Y TRANSPORTE
+  ================================ -->
+  <div id="biomembranas" class="section">
+    <div class="section-title">🧫 Biomembranas y transporte <span class="badge">Unidad 4</span></div>
+
+    <p>Las biomembranas son estructuras <strong>dinámicas y asimétricas</strong> formadas por una bicapa lipídica con proteínas integradas y periféricas. El modelo vigente es el <strong>Modelo del Mosaico Fluido</strong> (Singer y Nicolson, 1972).</p>
+
+    <div class="def-box">
+      <strong>Modelo del Mosaico Fluido</strong>
+      <p>La membrana es una bicapa lipídica fluida en la que las proteínas están embebidas de manera dinámica. Los lípidos y proteínas pueden desplazarse lateralmente. La asimetría se mantiene gracias a la distribución diferencial de lípidos y glicoproteínas.</p>
+    </div>
+
+    <div class="subsection-title">Composición de la membrana</div>
+    <div class="cards">
+      <div class="card"><h4>Fosfolípidos</h4><p>Bicapa que forma la estructura base. Las colas hidrofóbicas se orientan al interior y las cabezas polares al exterior.</p></div>
+      <div class="card"><h4>Colesterol</h4><p>Regula la fluidez: a bajas temperaturas evita la solidificación; a altas temperaturas, evita el exceso de fluidez.</p></div>
+      <div class="card"><h4>Proteínas integrales</h4><p>Atraviesan la bicapa total o parcialmente. Actúan como canales, transportadores, receptores o enzimas.</p></div>
+      <div class="card"><h4>Proteínas periféricas</h4><p>Asociadas a la superficie interna o externa. Participan en señalización y anclaje al citoesqueleto.</p></div>
+      <div class="card"><h4>Glicoproteínas/Glicolípidos</h4><p>Solo en la cara extracelular. Forman el glucocáliz: reconocimiento celular, adhesión y protección.</p></div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       DIFERENCIACIONES DE MEMBRANA
+  ================================ -->
+  <div id="diferenciaciones" class="section">
+    <div class="section-title">🔗 Diferenciaciones de membrana <span class="badge">PDF</span></div>
+
+    <p>Son regiones especializadas de la membrana plasmática adaptadas a funciones específicas como absorción, secreción, adhesión mecánica e interacción entre células adyacentes.</p>
+
+    <div class="def-box">
+      <strong>Uniones estrechas u oclusivas (Tight junctions)</strong>
+      <p>Sellan el espacio paracelular entre células vecinas. Impiden el pasaje de sustancias entre células epiteliales. Se ubican por debajo del borde apical. Fundamentales en epitelios de barrera (intestino, vesícula biliar, riñón).</p>
+    </div>
+    <div class="def-box">
+      <strong>Desmosomas</strong>
+      <p>Complejos proteicos que anclan células adyacentes a través de filamentos intermedios (citoqueratina). Aportan resistencia mecánica a tejidos sometidos a tensión como la piel y el corazón.</p>
+    </div>
+    <div class="def-box">
+      <strong>Uniones comunicantes (Gap junctions)</strong>
+      <p>Canales proteicos (conexinas/conexones) que comunican directamente los citoplasmas de células adyacentes. Permiten el paso de iones y pequeñas moléculas. Esenciales para la coordinación eléctrica en músculo cardíaco.</p>
+    </div>
+    <div class="def-box">
+      <strong>Microvellosidades</strong>
+      <p>Prolongaciones digitiformes de la membrana apical. Aumentan la superficie de absorción (borde en cepillo del intestino). Contienen un núcleo de filamentos de actina.</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Diferenciaciones de membrana</p>
+      <div class="mermaid">
+graph LR
+    DIF["Diferenciaciones de membrana"] --> SEL["Sellado / Barrera"]
+    DIF --> ADH["Adhesión mecánica"]
+    DIF --> COM["Comunicación"]
+    DIF --> ABS["Absorción"]
+    SEL --> TJ["Uniones estrechas"]
+    ADH --> DS["Desmosomas"]
+    ADH --> AJ["Uniones adherentes"]
+    COM --> GJ["Uniones comunicantes (Gap)"]
+    ABS --> MV["Microvellosidades"]
+    style DIF fill:#1a6b4a,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       CITOPLASMA
+  ================================ -->
+  <div id="citoplasma" class="section">
+    <div class="section-title">💧 Citoplasma <span class="badge">PDF</span></div>
+
+    <p>El citoplasma es la región celular comprendida entre la membrana plasmática y la envoltura nuclear. Está compuesto por el <strong>citosol</strong>, el <strong>citoesqueleto</strong> y las organelas.</p>
+
+    <div class="def-box">
+      <strong>Citosol</strong>
+      <p>Compartimiento fluido más grande de la célula. Constituye más de la mitad del volumen celular. Se comporta como un gel acuoso rico en iones, aminoácidos, proteínas, glucidos y nucleótidos. Es el sitio donde ocurre la mayor parte del metabolismo: glucólisis, síntesis de proteínas citoplasmáticas, etc.</p>
+    </div>
+
+    <div class="subsection-title">Citoesqueleto</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Componente</th><th>Diámetro</th><th>Proteínas</th><th>Función principal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Microfilamentos de actina</strong></td><td>~7 nm</td><td>Actina globular (G-actina)</td><td>Movimiento celular, contracción, microvellosidades, división</td></tr>
+          <tr><td><strong>Filamentos intermedios</strong></td><td>~10 nm</td><td>Citoqueratina, vimentina, láminas</td><td>Soporte estructural, anclaje de organelas y núcleo</td></tr>
+          <tr><td><strong>Microtúbulos</strong></td><td>~25 nm</td><td>α y β-tubulina</td><td>Transporte intracelular, huso mitótico, cilios y flagelos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="def-box">
+      <strong>Ribosomas</strong>
+      <p>Complejos ribonucleoproteicos responsables de la síntesis de proteínas (traducción). Formados por dos subunidades: mayor y menor. En eucariontes: 80S (60S + 40S). Pueden ser libres en el citosol o asociados al RE rugoso.</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Citoplasma</p>
+      <div class="mermaid">
+graph TD
+    CYT["💧 CITOPLASMA"] --> CS["Citosol"]
+    CYT --> CK["Citoesqueleto"]
+    CYT --> RIB["Ribosomas"]
+    CS --> M1["Glucólisis"]
+    CS --> M2["Síntesis de aa y nucleótidos"]
+    CK --> MF["Microfilamentos (actina, 7nm)"]
+    CK --> FI["Filamentos intermedios (10nm)"]
+    CK --> MT["Microtúbulos (tubulina, 25nm)"]
+    MT --> T1["Transporte vesicular"]
+    MT --> T2["Huso mitótico"]
+    MF --> T3["Movimiento / contracción"]
+    RIB --> R1["Libres — proteínas citoplasmáticas"]
+    RIB --> R2["En RE rugoso — proteínas de membrana y secreción"]
+    style CYT fill:#1a6b4a,color:#fff
+    style CK fill:#2d9466,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       SISTEMA DE ENDOMEMBRANAS
+  ================================ -->
+  <div id="endomembranas" class="section">
+    <div class="section-title">🏭 Sistema de endomembranas <span class="badge">PDF</span></div>
+
+    <p>El sistema de endomembranas integra un conjunto de compartimientos membranosos interconectados funcionalmente que participan en la síntesis, modificación, empaquetamiento y transporte de proteínas y lípidos.</p>
+
+    <div class="def-box">
+      <strong>Envoltura nuclear</strong>
+      <p>Formada por dos membranas (interna y externa) que delimitan el espacio perinuclear. Se continúa con el RE rugoso. Posee poros nucleares que regulan el tráfico bidireccional de macromoléculas (ARN, proteínas ribosomales).</p>
+    </div>
+    <div class="def-box">
+      <strong>Retículo endoplasmático rugoso (RER)</strong>
+      <p>Red de sacos aplanados (cisternas) con ribosomas en su cara citosólica. Sitio de síntesis de proteínas destinadas a la membrana, secreción o lisosomas. Las proteínas se translocan al lumen del RER durante su síntesis para ser procesadas (glicosilación, plegamiento).</p>
+    </div>
+    <div class="def-box">
+      <strong>Retículo endoplasmático liso (REL)</strong>
+      <p>Carece de ribosomas. Funciones: síntesis de lípidos y fosfolípidos de membrana, metabolismo del glucógeno, detoxificación de fármacos y venenos (citocromo P450), almacenamiento de Ca²⁺ (músculo estriado).</p>
+    </div>
+    <div class="def-box">
+      <strong>Aparato de Golgi</strong>
+      <p>Conjunto de cisternas aplanadas apiladas. Recibe vesículas desde el RER (cara cis), modifica y clasifica las proteínas (N-glicosilación, proteolisis) y las envía a su destino final en vesículas que brotan de la cara trans: lisosomas, membrana plasmática o secreción.</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Sistema de endomembranas y ruta secretora</p>
+      <div class="mermaid">
+graph LR
+    NUC["Núcleo"] --> RER["RE Rugoso\n(síntesis + glicosilación)"]
+    RER --> VE["Vesículas de transporte"]
+    VE --> GCis["Golgi — cara CIS"]
+    GCis --> GMed["Golgi — medial\n(modificación)"]
+    GMed --> GTrans["Golgi — cara TRANS\n(clasificación)"]
+    GTrans --> LYS["Lisosomas"]
+    GTrans --> SEC["Vesículas de secreción\n(exocitosis)"]
+    GTrans --> MEM["Membrana plasmática"]
+    RER --> REL["RE Liso\n(lípidos, detox, Ca²⁺)"]
+    style NUC fill:#1a6b4a,color:#fff
+    style GTrans fill:#2d9466,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       LISOSOMAS Y PEROXISOMAS
+  ================================ -->
+  <div id="lisosomas" class="section">
+    <div class="section-title">♻️ Lisosomas y peroxisomas <span class="badge">PDF</span></div>
+
+    <div class="def-box">
+      <strong>Lisosoma primario</strong>
+      <p>Vesícula que brota del aparato de Golgi. Contiene hidrolasas ácidas (proteasas, lipasas, nucleasas, glicosidases) activas a pH ~5. Estas enzimas se sintetizan en el RER y se glicosilaron con manosa-6-fosfato, señal de direccionamiento al lisosoma.</p>
+    </div>
+    <div class="def-box">
+      <strong>Lisosoma secundario (fagolisosoma / autofagolisosoma)</strong>
+      <p>Resulta de la fusión del lisosoma primario con un fagosoma (material externo) o autofagosoma (material citoplasmático propio). Degradan el contenido hasta monómeros reciclables.</p>
+    </div>
+    <div class="def-box">
+      <strong>Autofagia</strong>
+      <p>Proceso por el cual la célula degrada sus propias organelas dañadas u obsoletas. El material a degradar es rodeado por una membrana formando el autofagosoma, que luego se fusiona con el lisosoma.</p>
+    </div>
+    <div class="def-box">
+      <strong>Peroxisoma</strong>
+      <p>Organela delimitada por una sola membrana. Contiene oxidasas y catalasa. Realiza la β-oxidación de ácidos grasos de cadena muy larga y neutraliza el H₂O₂ generado (2H₂O₂ → 2H₂O + O₂). Participa en la síntesis de plasmalógenos y sales biliares.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Característica</th><th>Lisosoma</th><th>Peroxisoma</th></tr></thead>
+        <tbody>
+          <tr><td>Origen</td><td>Sistema de endomembranas (Golgi)</td><td>División de peroxisomas preexistentes</td></tr>
+          <tr><td>Enzimas clave</td><td>Hidrolasas ácidas</td><td>Oxidasas + catalasa</td></tr>
+          <tr><td>pH interno</td><td>~5 (ácido)</td><td>~7 (neutro)</td></tr>
+          <tr><td>Función</td><td>Digestión intracelular, autofagia</td><td>Oxidación de lípidos, detox de H₂O₂</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       NÚCLEO, MITOCONDRIAS Y PLASTOS
+  ================================ -->
+  <div id="nucleo" class="section">
+    <div class="section-title">🎯 Núcleo, mitocondrias y plastos <span class="badge">PDF</span></div>
+
+    <div class="subsection-title">Núcleo</div>
+    <p>Presente solo en células eucariontes. Delimitado por la envoltura nuclear (doble membrana). Contiene la cromatina (ADN + proteínas histonas) y el nucleoplasma.</p>
+    <div class="cards">
+      <div class="card"><h4>Envoltura nuclear</h4><p>Doble membrana continua con el RER. Posee poros nucleares que regulan el tráfico de ARN y proteínas.</p></div>
+      <div class="card"><h4>Lámina nuclear</h4><p>Red de filamentos intermedios (laminas A, B, C) que soporta la envoltura y organiza la cromatina periférica.</p></div>
+      <div class="card"><h4>Nucléolo</h4><p>Región no delimitada por membrana. Sitio de síntesis y ensamblaje de subunidades ribosomales (ARNr + proteínas).</p></div>
+      <div class="card"><h4>Cromatina</h4><p>ADN enrollado alrededor de histonas. Eucromatina (activa, descondensada) y heterocromatina (inactiva, condensada).</p></div>
+    </div>
+
+    <div class="subsection-title">Mitocondria</div>
+    <div class="def-box">
+      <strong>Mitocondria — «la central energética»</strong>
+      <p>Organela de doble membrana. La membrana interna forma invaginaciones llamadas <em>crestas mitocondriales</em> que aumentan la superficie disponible para la cadena de transporte de electrones. Contiene ADN propio circular (ADNmt) y ribosomas 70S. Realiza la respiración celular aeróbica: ciclo de Krebs + cadena respiratoria → ATP.</p>
+    </div>
+
+    <div class="subsection-title">Plastos (exclusivos de plantas y algas)</div>
+    <div class="cards">
+      <div class="card">
+        <h4>🌿 Cloroplasto</h4>
+        <p>Doble membrana + sistema de tilacoides (grana). Contiene clorofila. Realiza la fotosíntesis: fijación de CO₂ → glucosa. Posee ADN y ribosomas 70S propios.</p>
+      </div>
+      <div class="card">
+        <h4>🟡 Cromoplasto</h4>
+        <p>Contiene pigmentos carotenoides (amarillos, naranjas, rojos). Confiere color a flores y frutos para atraer polinizadores y dispersores.</p>
+      </div>
+      <div class="card">
+        <h4>⚪ Amiloplasto</h4>
+        <p>Almacena almidón en órganos de reserva como raíces y tubérculos.</p>
+      </div>
+    </div>
+
+    <div class="def-box">
+      <strong>Teoría endosimbiótica (Lynn Margulis)</strong>
+      <p>Mitocondrias y cloroplastos son descendientes de bacterias que fueron fagocitadas por células ancestrales y establecieron una relación simbiótica. Evidencias: doble membrana, ADN circular propio, ribosomas 70S, división por fisión binaria.</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Organelas energéticas</p>
+      <div class="mermaid">
+graph TD
+    E["Organelas energéticas"] --> MIT["Mitocondria"]
+    E --> CHL["Cloroplasto (plantas)"]
+    MIT --> M1["Membrana interna → crestas"]
+    MIT --> M2["Ciclo de Krebs"]
+    MIT --> M3["Cadena respiratoria → ATP"]
+    MIT --> M4["ADNmt circular + ribosomas 70S"]
+    CHL --> C1["Tilacoides → grana"]
+    CHL --> C2["Fotosíntesis → glucosa"]
+    CHL --> C3["ADN circular + ribosomas 70S"]
+    M4 --> TH["Teoría endosimbiótica"]
+    C3 --> TH
+    style E fill:#1a6b4a,color:#fff
+    style TH fill:#e8763a,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       MECANISMOS DE TRANSPORTE
+  ================================ -->
+  <div id="transporte" class="section">
+    <div class="section-title">🚚 Mecanismos de transporte <span class="badge">PPTX</span></div>
+
+    <p>Las membranas biológicas son selectivamente permeables. Las sustancias las atraviesan por diferentes mecanismos según su tamaño, polaridad y gradiente de concentración.</p>
+
+    <div class="subsection-title">Transporte pasivo (sin gasto de ATP)</div>
+    <div class="cards">
+      <div class="card">
+        <h4>Difusión simple</h4>
+        <p>Moléculas pequeñas no polares (O₂, CO₂, N₂) o muy pequeñas (H₂O) atraviesan la bicapa lipídica a favor de gradiente de concentración.</p>
+      </div>
+      <div class="card">
+        <h4>Difusión facilitada</h4>
+        <p>Moléculas polares o iones atraviesan la membrana a favor de gradiente mediante proteínas canal (acuaporinas, canales iónicos) o proteínas transportadoras (GLUT para glucosa).</p>
+      </div>
+      <div class="card">
+        <h4>Ósmosis</h4>
+        <p>Difusión del agua a través de la membrana semipermeable desde donde hay menor concentración de solutos hacia donde hay mayor concentración.</p>
+      </div>
+    </div>
+
+    <div class="subsection-title">Transporte activo (con gasto de ATP)</div>
+    <div class="cards">
+      <div class="card">
+        <h4>Transporte activo primario</h4>
+        <p>La energía del ATP mueve sustancias en contra de su gradiente electroquímico. Ej.: bomba Na⁺/K⁺-ATPasa (expulsa 3 Na⁺ e introduce 2 K⁺ por ciclo).</p>
+      </div>
+      <div class="card">
+        <h4>Transporte activo secundario</h4>
+        <p>Aprovecha el gradiente electroquímico generado por el transporte primario. Simporte (misma dirección) y antiporte (dirección opuesta). Ej.: cotransportador Na⁺/glucosa.</p>
+      </div>
+    </div>
+
+    <div class="subsection-title">Transporte en masa (vesicular)</div>
+    <div class="cards">
+      <div class="card">
+        <h4>Endocitosis</h4>
+        <p>La membrana se invagina para internalizar material: <em>fagocitosis</em> (partículas grandes), <em>pinocitosis</em> (fluidos y solutos), <em>endocitosis mediada por receptor</em> (clathrina).</p>
+      </div>
+      <div class="card">
+        <h4>Exocitosis</h4>
+        <p>Vesículas de secreción se fusionan con la membrana plasmática y liberan su contenido al exterior. Fundamental en secreción de neurotransmisores y hormonas.</p>
+      </div>
+    </div>
+
+    <div class="mermaid-wrap">
+      <p class="map-label">Mapa conceptual — Mecanismos de transporte</p>
+      <div class="mermaid">
+graph LR
+    T["🚚 TRANSPORTE A TRAVÉS DE MEMBRANA"] --> PAS["Pasivo\n(↓ gradiente, sin ATP)"]
+    T --> ACT["Activo\n(↑ gradiente, con ATP)"]
+    T --> VES["Vesicular\n(en masa)"]
+    PAS --> DS["Difusión simple\n(O₂, CO₂)"]
+    PAS --> DF["Difusión facilitada\n(glucosa, iones)"]
+    PAS --> OSM["Ósmosis\n(H₂O)"]
+    ACT --> AP["Primario\n(bomba Na/K)"]
+    ACT --> AS["Secundario\n(cotransportadores)"]
+    VES --> END["Endocitosis\n(fagocitosis, pinocitosis)"]
+    VES --> EXO["Exocitosis\n(secreción)"]
+    style T fill:#1a6b4a,color:#fff
+    style PAS fill:#2d9466,color:#fff
+    style ACT fill:#e8763a,color:#fff
+    style VES fill:#3a7be8,color:#fff
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ================================
+       ACTIVIDADES
+  ================================ -->
+  <div id="actividades" class="section">
+    <div class="section-title">📝 Actividades <span class="badge">DOCX</span></div>
+
+    <p>La carpeta incluye dos documentos de actividades prácticas que complementan el contenido teórico:</p>
+
+    <div class="cards">
+      <div class="card">
+        <h4>📄 Actividad organelas</h4>
+        <p>Ejercicios de identificación y descripción de las organelas celulares. Vincula cada organela con su función, ubicación y características estructurales. Refuerza los contenidos de citoplasma, endomembranas, núcleo y mitocondrias.</p>
+      </div>
+      <div class="card">
+        <h4>📄 Actividad Organización Celular</h4>
+        <p>Ejercicios sobre la organización estructural de la célula eucarionte y procarionte. Incluye comparación de tipos celulares, identificación en imágenes y preguntas de análisis.</p>
+      </div>
+    </div>
+
+    <div class="subsection-title">Cuadro integrador de organelas</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Organela</th><th>Membrana</th><th>Solo en…</th><th>Función principal</th></tr></thead>
+        <tbody>
+          <tr><td>Núcleo</td><td>Doble</td><td>Eucariontes</td><td>Contiene ADN, controla expresión génica</td></tr>
+          <tr><td>RE rugoso</td><td>Simple</td><td>Eucariontes</td><td>Síntesis y procesamiento de proteínas</td></tr>
+          <tr><td>RE liso</td><td>Simple</td><td>Eucariontes</td><td>Síntesis de lípidos, detox, almacén Ca²⁺</td></tr>
+          <tr><td>Aparato de Golgi</td><td>Simple</td><td>Eucariontes</td><td>Modificación, clasificación y envío de proteínas</td></tr>
+          <tr><td>Lisosoma</td><td>Simple</td><td>Eucariontes</td><td>Digestión intracelular, autofagia</td></tr>
+          <tr><td>Peroxisoma</td><td>Simple</td><td>Eucariontes</td><td>Oxidación de ácidos grasos, detox H₂O₂</td></tr>
+          <tr><td>Mitocondria</td><td>Doble</td><td>Eucariontes</td><td>Respiración celular, producción de ATP</td></tr>
+          <tr><td>Cloroplasto</td><td>Doble</td><td>Plantas y algas</td><td>Fotosíntesis</td></tr>
+          <tr><td>Ribosoma</td><td>Sin membrana</td><td>Todos los seres vivos</td><td>Síntesis de proteínas (traducción)</td></tr>
+          <tr><td>Vacuola central</td><td>Simple (tonoplasto)</td><td>Células vegetales</td><td>Turgencia, reserva, degradación</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Init Mermaid
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e8f5ee',
+      primaryTextColor: '#1c2b22',
+      primaryBorderColor: '#2d9466',
+      lineColor: '#2d9466',
+      secondaryColor: '#f0f9f4',
+      tertiaryColor: '#ffffff'
+    },
+    flowchart: { curve: 'basis', padding: 20 }
+  });
+
+  // Active sidebar link on scroll
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('#sidebar nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`#sidebar nav a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
