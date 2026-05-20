@@ -213,6 +213,303 @@
     /* ===== DIVIDER ===== */
     hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 
+    /* ===== EJERCICIOS ===== */
+    .ej-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; margin-bottom: 24px;
+    }
+    .ej-score-bar {
+      background: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ej-score-bar span { font-size: 1.1rem; }
+
+    /* Multiple choice & V/F */
+    .quiz-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .quiz-item.correct { border-color: #2d9466; background: #f0fff8; }
+    .quiz-item.wrong   { border-color: #e53e3e; background: #fff5f5; }
+    .quiz-q {
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--text); margin-bottom: 12px;
+      display: flex; gap: 10px;
+    }
+    .quiz-q .qnum {
+      background: var(--primary); color: #fff;
+      border-radius: 50%; width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; flex-shrink: 0; margin-top: 1px;
+    }
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .opt-btn {
+      background: var(--accent2);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px;
+      text-align: left;
+      font-size: 0.86rem;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.15s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--primary-light); background: var(--accent); }
+    .opt-btn.selected-correct { background: #d4f5e7; border-color: #2d9466; color: #1a6b4a; font-weight: 600; }
+    .opt-btn.selected-wrong   { background: #fde8e8; border-color: #e53e3e; color: #c0392b; font-weight: 600; }
+    .opt-btn.reveal-correct   { background: #d4f5e7; border-color: #2d9466; color: #1a6b4a; }
+    .opt-btn:disabled { cursor: default; }
+    .opt-icon { font-size: 1rem; }
+    .feedback {
+      margin-top: 10px; padding: 8px 12px;
+      border-radius: 6px; font-size: 0.83rem; display: none;
+    }
+    .feedback.show { display: block; }
+    .feedback.ok  { background: #d4f5e7; color: #1a6b4a; }
+    .feedback.err { background: #fde8e8; color: #c0392b; }
+
+    /* V/F */
+    .vf-options { display: flex; gap: 10px; margin-top: 10px; }
+    .vf-btn {
+      flex: 1; padding: 9px; border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--accent2);
+      font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .vf-btn:hover:not(:disabled) { border-color: var(--primary-light); }
+    .vf-btn.selected-correct { background: #d4f5e7; border-color: #2d9466; color: #1a6b4a; }
+    .vf-btn.selected-wrong   { background: #fde8e8; border-color: #e53e3e; color: #c0392b; }
+    .vf-btn.reveal-correct   { background: #d4f5e7; border-color: #2d9466; color: #1a6b4a; }
+    .vf-btn:disabled { cursor: default; }
+
+    /* Completar */
+    .completar-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 14px;
+    }
+    .completar-item p { font-size: 0.9rem; line-height: 2; margin: 0; }
+    .blank-input {
+      border: none; border-bottom: 2px solid var(--primary-light);
+      background: var(--accent);
+      padding: 2px 8px; border-radius: 4px 4px 0 0;
+      font-size: 0.88rem; color: var(--text);
+      width: 150px; text-align: center;
+      outline: none; transition: border-color 0.2s;
+    }
+    .blank-input:focus { border-bottom-color: var(--primary); }
+    .blank-input.correct-input { background: #d4f5e7; border-bottom-color: #2d9466; color: #1a6b4a; font-weight: 600; }
+    .blank-input.wrong-input   { background: #fde8e8; border-bottom-color: #e53e3e; color: #c0392b; }
+    .completar-feedback { font-size: 0.8rem; margin-top: 8px; display: none; }
+    .completar-feedback.show { display: block; }
+
+    /* Relacionar */
+    .match-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .match-col { display: flex; flex-direction: column; gap: 8px; }
+    .match-col-label {
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--primary); margin-bottom: 2px;
+    }
+    .match-btn {
+      background: var(--accent2);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.83rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      color: var(--text);
+      position: relative;
+    }
+    .match-btn:hover:not(:disabled):not(.matched) { border-color: var(--primary-light); background: var(--accent); }
+    .match-btn.selected { border-color: var(--primary); background: var(--accent); box-shadow: 0 0 0 2px var(--primary); }
+    .match-btn.matched  { background: #d4f5e7; border-color: #2d9466; color: #1a6b4a; cursor: default; }
+    .match-btn.wrong-match { background: #fde8e8; border-color: #e53e3e; animation: shake 0.3s; }
+    .match-btn:disabled { cursor: default; }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .match-line {
+      font-size: 0.75rem; color: var(--primary); font-weight: 600;
+      text-align: center; margin-top: 2px; display: none;
+    }
+    .match-line.show { display: block; }
+
+    /* Ruta secretora — drag & drop */
+    .ruta-container {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .ruta-source {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      min-height: 52px;
+      padding: 10px;
+      background: var(--accent2);
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .ruta-slots {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      align-items: center;
+    }
+    .ruta-slot {
+      min-width: 120px; min-height: 44px;
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; color: #aaa;
+      background: var(--accent2);
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .ruta-slot.dragover { border-color: var(--primary-light); background: var(--accent); }
+    .ruta-slot.filled-correct { border-color: #2d9466; background: #d4f5e7; border-style: solid; }
+    .ruta-slot.filled-wrong   { border-color: #e53e3e; background: #fde8e8; border-style: solid; }
+    .ruta-slot .slot-num {
+      position: absolute; top: -10px; left: 8px;
+      background: var(--primary); color: #fff;
+      border-radius: 50%; width: 20px; height: 20px;
+      font-size: 0.68rem; display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+    }
+    .ruta-arrow { color: var(--primary-light); font-size: 1.2rem; font-weight: 700; }
+    .drag-chip {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      cursor: grab;
+      user-select: none;
+      transition: opacity 0.15s, box-shadow 0.15s;
+    }
+    .drag-chip:active { cursor: grabbing; opacity: 0.7; }
+    .drag-chip.dragging { opacity: 0.4; }
+    .drag-chip.placed { display: none; }
+
+    /* Identificar organela */
+    .identifica-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      display: flex; gap: 16px; align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .identifica-clue {
+      flex: 1; min-width: 200px;
+      font-size: 0.88rem; color: var(--text-soft);
+      line-height: 1.6;
+    }
+    .identifica-clue strong { color: var(--primary); display: block; margin-bottom: 6px; font-size: 0.9rem; }
+    .identifica-answer {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .identifica-input {
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      color: var(--text);
+      background: var(--accent2);
+      outline: none;
+      width: 180px;
+      transition: border-color 0.2s;
+    }
+    .identifica-input:focus { border-color: var(--primary-light); }
+    .identifica-input.correct-input { background: #d4f5e7; border-color: #2d9466; color: #1a6b4a; font-weight: 600; }
+    .identifica-input.wrong-input   { background: #fde8e8; border-color: #e53e3e; color: #c0392b; }
+    .check-btn {
+      background: var(--primary-light); color: #fff;
+      border: none; border-radius: 8px;
+      padding: 8px 16px; font-size: 0.84rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .check-btn:hover { background: var(--primary); }
+    .check-btn:disabled { background: #aaa; cursor: default; }
+    .hint-btn {
+      background: transparent; color: var(--primary);
+      border: 1.5px solid var(--border);
+      border-radius: 8px; padding: 7px 12px;
+      font-size: 0.82rem; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .hint-btn:hover { border-color: var(--primary); }
+    .reset-item-btn {
+      background: transparent; color: var(--text-soft);
+      border: 1.5px solid var(--border);
+      border-radius: 8px; padding: 7px 10px;
+      font-size: 0.78rem; cursor: pointer;
+      transition: all 0.15s; margin-left: auto;
+    }
+    .reset-item-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Resultado final */
+    .resultado-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      text-align: center;
+      margin-top: 32px;
+      display: none;
+    }
+    .resultado-box.show { display: block; }
+    .resultado-box h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .resultado-box p { font-size: 1rem; opacity: 0.9; margin: 0; }
+    .resultado-box .score-big { font-size: 3rem; font-weight: 800; margin: 12px 0; }
+
+    /* Botones de sección */
+    .ej-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .ej-check-all {
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 8px;
+      padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ej-check-all:hover { background: var(--primary-light); }
+    .ej-reset {
+      background: transparent; color: var(--text-soft);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .ej-reset:hover { border-color: var(--primary); color: var(--primary); }
+
+    @media print {
+      #ejercicios { display: none; }
+    }
+
     /* ===== PRINT ===== */
     @media print {
       body { background: #fff; }
@@ -260,6 +557,14 @@
 
     <div class="section-label">Actividades</div>
     <a href="#actividades"><span class="icon">📝</span>Actividades</a>
+
+    <div class="section-label">Ejercicios</div>
+    <a href="#ej-multiple"><span class="icon">🔘</span>Opción múltiple</a>
+    <a href="#ej-vf"><span class="icon">✅</span>Verdadero / Falso</a>
+    <a href="#ej-completar"><span class="icon">✏️</span>Completar</a>
+    <a href="#ej-relacionar"><span class="icon">🔗</span>Relacionar columnas</a>
+    <a href="#ej-ruta"><span class="icon">🔁</span>Ruta secretora</a>
+    <a href="#ej-identifica"><span class="icon">🔍</span>Identificar organela</a>
   </nav>
 </aside>
 
@@ -1007,6 +1312,512 @@ graph LR
     </div>
   </div>
 
+
+  <!-- ================================
+       EJERCICIOS
+  ================================ -->
+  <section id="ejercicios">
+  <hr/>
+  <div class="section-title" style="font-size:1.4rem; padding-left:0; border-left:none; margin-bottom:8px;">
+    🧪 Ejercicios de práctica
+  </div>
+  <p style="margin-bottom:32px;">Ponete a prueba con los contenidos de todas las unidades. Cada sección tiene corrección automática.</p>
+
+  <!-- ===== 1. OPCIÓN MÚLTIPLE ===== -->
+  <div id="ej-multiple" class="section">
+    <div class="section-title">🔘 Opción múltiple</div>
+    <div class="ej-header">
+      <p>Seleccioná la opción correcta en cada pregunta.</p>
+      <div class="ej-score-bar">Correctas: <span id="mc-score">0</span> / 10</div>
+    </div>
+
+    <!-- P1 -->
+    <div class="quiz-item" id="mc1">
+      <div class="quiz-q"><span class="qnum">1</span>¿Cuál es la unidad estructural y funcional de todos los seres vivos?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc1',false)"><span class="opt-icon">A</span> El átomo</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc1',false)"><span class="opt-icon">B</span> El tejido</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc1',true)"><span class="opt-icon">C</span> La célula</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc1',false)"><span class="opt-icon">D</span> El órgano</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! La célula es la unidad estructural y funcional según la Teoría Celular.</div>
+      <div class="feedback err">✘ Incorrecto. La respuesta correcta es <strong>C: La célula</strong>.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P2 -->
+    <div class="quiz-item" id="mc2">
+      <div class="quiz-q"><span class="qnum">2</span>¿Qué científico propuso la clasificación en 3 dominios basada en el ARNr?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc2',false)"><span class="opt-icon">A</span> Charles Darwin</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc2',false)"><span class="opt-icon">B</span> Robert Hooke</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc2',true)"><span class="opt-icon">C</span> Carl Woese</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc2',false)"><span class="opt-icon">D</span> Lynn Margulis</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! Carl Woese propuso los 3 dominios en 1990 usando el ARNr 16S.</div>
+      <div class="feedback err">✘ Incorrecto. Fue <strong>Carl Woese</strong> quien propuso los 3 dominios en 1990.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P3 -->
+    <div class="quiz-item" id="mc3">
+      <div class="quiz-q"><span class="qnum">3</span>¿Cuál es la función principal del aparato de Golgi?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc3',false)"><span class="opt-icon">A</span> Producir ATP mediante respiración celular</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc3',true)"><span class="opt-icon">B</span> Modificar, clasificar y enviar proteínas a su destino final</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc3',false)"><span class="opt-icon">C</span> Sintetizar lípidos de membrana y detoxificar fármacos</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc3',false)"><span class="opt-icon">D</span> Almacenar calcio y sintetizar ribosomas</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! El Golgi recibe proteínas del RER, las modifica y las envía a lisosomas, membrana o secreción.</div>
+      <div class="feedback err">✘ Incorrecto. La respuesta es <strong>B</strong>: modificar y clasificar proteínas.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P4 -->
+    <div class="quiz-item" id="mc4">
+      <div class="quiz-q"><span class="qnum">4</span>¿Cuál de los siguientes componentes del citoesqueleto tiene mayor diámetro?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc4',false)"><span class="opt-icon">A</span> Microfilamentos de actina (~7 nm)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc4',false)"><span class="opt-icon">B</span> Filamentos intermedios (~10 nm)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc4',true)"><span class="opt-icon">C</span> Microtúbulos (~25 nm)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc4',false)"><span class="opt-icon">D</span> Todos tienen el mismo diámetro</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! Los microtúbulos (α y β-tubulina) tienen ~25 nm, el mayor de los tres.</div>
+      <div class="feedback err">✘ Incorrecto. Los <strong>microtúbulos</strong> son los de mayor diámetro (~25 nm).</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P5 -->
+    <div class="quiz-item" id="mc5">
+      <div class="quiz-q"><span class="qnum">5</span>¿Qué diferencia al ADN del ARN en cuanto a su azúcar?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc5',false)"><span class="opt-icon">A</span> El ADN tiene ribosa; el ARN tiene glucosa</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc5',true)"><span class="opt-icon">B</span> El ADN tiene desoxirribosa; el ARN tiene ribosa</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc5',false)"><span class="opt-icon">C</span> Ambos tienen desoxirribosa</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc5',false)"><span class="opt-icon">D</span> Ambos tienen ribosa</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! La diferencia clave: ADN = desoxirribosa (le falta un –OH en el carbono 2').</div>
+      <div class="feedback err">✘ Incorrecto. <strong>ADN → desoxirribosa / ARN → ribosa</strong>.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P6 -->
+    <div class="quiz-item" id="mc6">
+      <div class="quiz-q"><span class="qnum">6</span>La bomba Na⁺/K⁺-ATPasa es un ejemplo de:</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc6',false)"><span class="opt-icon">A</span> Difusión facilitada</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc6',false)"><span class="opt-icon">B</span> Transporte activo secundario</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc6',true)"><span class="opt-icon">C</span> Transporte activo primario</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc6',false)"><span class="opt-icon">D</span> Endocitosis</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! Usa ATP directamente para bombear iones contra su gradiente (3 Na⁺ hacia afuera, 2 K⁺ hacia adentro).</div>
+      <div class="feedback err">✘ Incorrecto. Es <strong>transporte activo primario</strong>: consume ATP directamente.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P7 -->
+    <div class="quiz-item" id="mc7">
+      <div class="quiz-q"><span class="qnum">7</span>¿Cuál es el pH interno aproximado de los lisosomas?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc7',false)"><span class="opt-icon">A</span> pH 7 (neutro)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc7',true)"><span class="opt-icon">B</span> pH 5 (ácido)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc7',false)"><span class="opt-icon">C</span> pH 9 (básico)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc7',false)"><span class="opt-icon">D</span> pH 7.4 (fisiológico)</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! El pH ácido (~5) es esencial para la actividad de las hidrolasas lisosomales.</div>
+      <div class="feedback err">✘ Incorrecto. Los lisosomas tienen un pH de <strong>~5 (ácido)</strong>.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P8 -->
+    <div class="quiz-item" id="mc8">
+      <div class="quiz-q"><span class="qnum">8</span>¿Qué estructura de la mitocondria aumenta la superficie disponible para la cadena respiratoria?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc8',false)"><span class="opt-icon">A</span> La membrana externa</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc8',false)"><span class="opt-icon">B</span> El ADN mitocondrial</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc8',true)"><span class="opt-icon">C</span> Las crestas mitocondriales</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc8',false)"><span class="opt-icon">D</span> La matriz mitocondrial</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! Las crestas son invaginaciones de la membrana interna que amplían la superficie de reacción.</div>
+      <div class="feedback err">✘ Incorrecto. Son las <strong>crestas mitocondriales</strong> (invaginaciones de la membrana interna).</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P9 -->
+    <div class="quiz-item" id="mc9">
+      <div class="quiz-q"><span class="qnum">9</span>Las uniones que sellan el espacio entre células epiteliales vecinas se llaman:</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc9',false)"><span class="opt-icon">A</span> Desmosomas</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc9',false)"><span class="opt-icon">B</span> Uniones comunicantes (Gap junctions)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc9',true)"><span class="opt-icon">C</span> Uniones estrechas (Tight junctions)</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc9',false)"><span class="opt-icon">D</span> Microvellosidades</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! Las uniones estrechas sellan el espacio paracelular impidiendo el pasaje de sustancias.</div>
+      <div class="feedback err">✘ Incorrecto. Son las <strong>uniones estrechas (tight junctions)</strong>.</div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- P10 -->
+    <div class="quiz-item" id="mc10">
+      <div class="quiz-q"><span class="qnum">10</span>¿Cuál de estas afirmaciones sobre los peroxisomas es CORRECTA?</div>
+      <div class="options">
+        <button class="opt-btn" onclick="checkMC(this,'mc10',false)"><span class="opt-icon">A</span> Provienen del aparato de Golgi como los lisosomas</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc10',false)"><span class="opt-icon">B</span> Tienen ADN propio y ribosomas 70S</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc10',true)"><span class="opt-icon">C</span> Contienen catalasa para neutralizar el H₂O₂ generado por oxidasas</button>
+        <button class="opt-btn" onclick="checkMC(this,'mc10',false)"><span class="opt-icon">D</span> Tienen pH ácido para activar sus enzimas</button>
+      </div>
+      <div class="feedback ok">✔ ¡Correcto! La catalasa convierte 2H₂O₂ → 2H₂O + O₂, protegiendo a la célula del daño oxidativo.</div>
+      <div class="feedback err">✘ Incorrecto. La afirmación correcta es <strong>C</strong>: contienen catalasa para neutralizar H₂O₂.</div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ===== 2. VERDADERO / FALSO ===== -->
+  <div id="ej-vf" class="section">
+    <div class="section-title">✅ Verdadero / Falso</div>
+    <div class="ej-header">
+      <p>Indicá si cada afirmación es verdadera o falsa.</p>
+      <div class="ej-score-bar">Correctas: <span id="vf-score">0</span> / 8</div>
+    </div>
+
+    <div class="quiz-item" id="vf1">
+      <div class="quiz-q"><span class="qnum">1</span>Las arqueas poseen pared celular con peptidoglicano igual que las bacterias.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf1',false,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf1',true,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf2">
+      <div class="quiz-q"><span class="qnum">2</span>El retículo endoplasmático rugoso posee ribosomas asociados en su cara citosólica.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf2',true,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf2',false,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf3">
+      <div class="quiz-q"><span class="qnum">3</span>Los ribosomas de las células procariontes son del tipo 80S.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf3',false,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf3',true,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf4">
+      <div class="quiz-q"><span class="qnum">4</span>La teoría endosimbiótica propone que las mitocondrias y los cloroplastos descienden de bacterias ancestrales.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf4',true,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf4',false,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf5">
+      <div class="quiz-q"><span class="qnum">5</span>La difusión simple requiere proteínas de membrana para que las moléculas atraviesen la bicapa lipídica.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf5',false,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf5',true,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf6">
+      <div class="quiz-q"><span class="qnum">6</span>Los fosfolípidos forman la bicapa lipídica con sus colas hidrofóbicas orientadas hacia el interior.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf6',true,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf6',false,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf7">
+      <div class="quiz-q"><span class="qnum">7</span>El nucléolo es una organela delimitada por una membrana propia dentro del núcleo.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf7',false,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf7',true,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetVFItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><div class="quiz-item" id="vf8">
+      <div class="quiz-q"><span class="qnum">8</span>Las microvellosidades son diferenciaciones de la membrana apical que aumentan la superficie de absorción.</div>
+      <div class="vf-options">
+        <button class="vf-btn" onclick="checkVF(this,'vf8',true,'V')">Verdadero</button>
+        <button class="vf-btn" onclick="checkVF(this,'vf8',false,'F')">Falso</button>
+      </div>
+      <div class="feedback err" style="display:none"></div>
+      <div class="feedback ok" style="display:none"></div>
+    </div>
+
+    <div id="vf-explanations" style="display:none; margin-top:16px;">
+      <div class="def-box">
+        <strong>Respuestas explicadas</strong>
+        <p>1. <b>Falso</b> — Las arqueas NO tienen peptidoglicano en su pared. 2. <b>Verdadero</b>. 3. <b>Falso</b> — Los procariotas tienen ribosomas 70S (no 80S). 4. <b>Verdadero</b>. 5. <b>Falso</b> — La difusión simple NO requiere proteínas. 6. <b>Verdadero</b>. 7. <b>Falso</b> — El nucléolo NO tiene membrana propia. 8. <b>Verdadero</b>.</p>
+      </div>
+    </div>
+    <div class="ej-actions">
+      <button class="ej-check-all" onclick="showVFExplanations()">📋 Ver todas las explicaciones</button>
+      <button class="ej-reset" onclick="resetVF()">↺ Reiniciar</button>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ===== 3. COMPLETAR ===== -->
+  <div id="ej-completar" class="section">
+    <div class="section-title">✏️ Completar los espacios</div>
+    <p>Escribí la palabra que falta y presioná <strong>Verificar</strong> en cada oración.</p>
+
+    <div class="completar-item" id="comp1">
+      <p>El modelo que describe a la membrana plasmática como una bicapa lipídica fluida con proteínas embebidas es el modelo del
+        <input class="blank-input" id="comp1-inp" placeholder="..." autocomplete="off"/>
+        , propuesto por Singer y Nicolson en 1972.
+      </p>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="check-btn" onclick="checkCompletarStrict('comp1','mosaico fluido',['mosaico fluido','mosaico','mosaico-fluido'])">Verificar</button>
+        <button class="hint-btn" onclick="showHint('comp1','Pista: tiene 2 palabras, la segunda es un adjetivo que indica movimiento.')">💡 Pista</button>
+        <button class="reset-item-btn" onclick="resetCompletarItem(this.closest('.completar-item'))">↺</button>
+      </div>
+      <div class="completar-feedback" id="comp1-fb"></div>
+    </div>
+
+    <div class="completar-item" id="comp2">
+      <p>Las invaginaciones de la membrana interna de la mitocondria que aumentan la superficie para la cadena respiratoria se llaman
+        <input class="blank-input" id="comp2-inp" placeholder="..." autocomplete="off"/>
+        .
+      </p>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="check-btn" onclick="checkCompletarStrict('comp2','crestas mitocondriales',['crestas mitocondriales','crestas'])">Verificar</button>
+        <button class="hint-btn" onclick="showHint('comp2','Pista: como las crestas de una montaña...')">💡 Pista</button>
+        <button class="reset-item-btn" onclick="resetCompletarItem(this.closest('.completar-item'))">↺</button>
+      </div>
+      <div class="completar-feedback" id="comp2-fb"></div>
+    </div>
+
+    <div class="completar-item" id="comp3">
+      <p>La señal de direccionamiento que llevan las enzimas lisosomales para ser enviadas al lisosoma desde el Golgi es la
+        <input class="blank-input" id="comp3-inp" placeholder="..." style="width:190px" autocomplete="off"/>
+        .
+      </p>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="check-btn" onclick="checkCompletarStrict('comp3','manosa-6-fosfato',['manosa-6-fosfato','manosa 6 fosfato','manosa6fosfato','m6p'])">Verificar</button>
+        <button class="hint-btn" onclick="showHint('comp3','Pista: es un azúcar modificado con un grupo fosfato.')">💡 Pista</button>
+        <button class="reset-item-btn" onclick="resetCompletarItem(this.closest('.completar-item'))">↺</button>
+      </div>
+      <div class="completar-feedback" id="comp3-fb"></div>
+    </div>
+
+    <div class="completar-item" id="comp4">
+      <p>La teoría endosimbiótica fue propuesta por
+        <input class="blank-input" id="comp4-inp" placeholder="..." style="width:160px" autocomplete="off"/>
+        y explica el origen de mitocondrias y cloroplastos.
+      </p>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="check-btn" onclick="checkCompletarStrict('comp4','lynn margulis',['lynn margulis','margulis','lynn'])">Verificar</button>
+        <button class="hint-btn" onclick="showHint('comp4','Pista: científica estadounidense, nombre compuesto.')">💡 Pista</button>
+        <button class="reset-item-btn" onclick="resetCompletarItem(this.closest('.completar-item'))">↺</button>
+      </div>
+      <div class="completar-feedback" id="comp4-fb"></div>
+    </div>
+
+    <div class="completar-item" id="comp5">
+      <p>El proceso por el cual la célula degrada sus propias organelas dañadas envolviéndolas en una membrana se llama
+        <input class="blank-input" id="comp5-inp" placeholder="..." autocomplete="off"/>
+        .
+      </p>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="check-btn" onclick="checkCompletarStrict('comp5','autofagia',['autofagia','autophagy'])">Verificar</button>
+        <button class="hint-btn" onclick="showHint('comp5','Pista: del griego «comerse a sí mismo».')">💡 Pista</button>
+        <button class="reset-item-btn" onclick="resetCompletarItem(this.closest('.completar-item'))">↺</button>
+      </div>
+      <div class="completar-feedback" id="comp5-fb"></div>
+    </div>
+
+    <div class="completar-item" id="comp6">
+      <p>En la clasificación actual de los seres vivos existen
+        <input class="blank-input" id="comp6-inp" placeholder="..." style="width:80px" autocomplete="off"/>
+        dominios: Archaea, Bacteria y Eukarya.
+      </p>
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button class="check-btn" onclick="checkCompletarStrict('comp6','3',['3','tres'])">Verificar</button>
+        <button class="hint-btn" onclick="showHint('comp6','Pista: es un número del 1 al 5.')">💡 Pista</button>
+        <button class="reset-item-btn" onclick="resetCompletarItem(this.closest('.completar-item'))">↺</button>
+      </div>
+      <div class="completar-feedback" id="comp6-fb"></div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ===== 4. RELACIONAR COLUMNAS ===== -->
+  <div id="ej-relacionar" class="section">
+    <div class="section-title">🔗 Relacionar columnas</div>
+    <p>Hacé clic en un concepto de la columna izquierda y luego en su definición correcta en la derecha.</p>
+    <div class="ej-score-bar" style="display:inline-flex; margin-bottom:16px;">Pares correctos: <span id="match-score">0</span> / 8</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-col-label">Concepto</div>
+        <button class="match-btn" id="ml1" onclick="selectMatch(this,'ml','1')">Citosol</button>
+        <button class="match-btn" id="ml2" onclick="selectMatch(this,'ml','2')">Peroxisoma</button>
+        <button class="match-btn" id="ml3" onclick="selectMatch(this,'ml','3')">Desmosoma</button>
+        <button class="match-btn" id="ml4" onclick="selectMatch(this,'ml','4')">Exocitosis</button>
+        <button class="match-btn" id="ml5" onclick="selectMatch(this,'ml','5')">Cromatina</button>
+        <button class="match-btn" id="ml6" onclick="selectMatch(this,'ml','6')">Colesterol</button>
+        <button class="match-btn" id="ml7" onclick="selectMatch(this,'ml','7')">ARN de transferencia</button>
+        <button class="match-btn" id="ml8" onclick="selectMatch(this,'ml','8')">Glucocáliz</button>
+      </div>
+      <div class="match-col">
+        <div class="match-col-label">Definición</div>
+        <button class="match-btn" id="mr4" onclick="selectMatch(this,'mr','4')">Vesículas que fusionan con la membrana y liberan contenido al exterior</button>
+        <button class="match-btn" id="mr7" onclick="selectMatch(this,'mr','7')">Transporta aminoácidos al ribosoma durante la síntesis proteica</button>
+        <button class="match-btn" id="mr1" onclick="selectMatch(this,'mr','1')">Compartimiento acuoso donde ocurre la mayor parte del metabolismo celular</button>
+        <button class="match-btn" id="mr6" onclick="selectMatch(this,'mr','6')">Regula la fluidez de la membrana plasmática</button>
+        <button class="match-btn" id="mr8" onclick="selectMatch(this,'mr','8')">Capa de glicoproteínas y glicolípidos en la cara extracelular de la membrana</button>
+        <button class="match-btn" id="mr3" onclick="selectMatch(this,'mr','3')">Complejo proteico que brinda resistencia mecánica a tejidos como la piel</button>
+        <button class="match-btn" id="mr5" onclick="selectMatch(this,'mr','5')">ADN enrollado alrededor de histonas, eucromatina y heterocromatina</button>
+        <button class="match-btn" id="mr2" onclick="selectMatch(this,'mr','2')">Contiene catalasa para neutralizar H₂O₂ generado por oxidasas</button>
+      </div>
+    </div>
+    <div class="ej-actions">
+      <button class="ej-reset" onclick="resetMatch()">↺ Reiniciar</button>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ===== 5. RUTA SECRETORA ===== -->
+  <div id="ej-ruta" class="section">
+    <div class="section-title">🔁 Ordenar la ruta secretora</div>
+    <p>Arrastrá cada paso al casillero correspondiente para reconstruir la ruta secretora correcta.</p>
+
+    <div class="ruta-container">
+      <p style="font-size:0.8rem; font-weight:600; color:var(--primary); margin-bottom:8px;">📦 Pasos disponibles — arrastrá al orden correcto:</p>
+      <div class="ruta-source" id="ruta-source">
+        <div class="drag-chip" draggable="true" id="chip-golgi" data-val="3">Aparato de Golgi</div>
+        <div class="drag-chip" draggable="true" id="chip-mem" data-val="5">Membrana plasmática / Secreción</div>
+        <div class="drag-chip" draggable="true" id="chip-rer" data-val="2">Retículo endoplasmático rugoso</div>
+        <div class="drag-chip" draggable="true" id="chip-nuc" data-val="1">Síntesis en ribosomas del RER (señal señal peptídica)</div>
+        <div class="drag-chip" draggable="true" id="chip-ves" data-val="4">Vesículas de transporte</div>
+      </div>
+
+      <p style="font-size:0.8rem; font-weight:600; color:var(--primary); margin:12px 0 8px;">🎯 Ordenar aquí (1 → 5):</p>
+      <div class="ruta-slots">
+        <div class="ruta-slot" id="slot-1" data-pos="1"><span class="slot-num">1</span>Paso 1</div>
+        <div class="ruta-arrow">→</div>
+        <div class="ruta-slot" id="slot-2" data-pos="2"><span class="slot-num">2</span>Paso 2</div>
+        <div class="ruta-arrow">→</div>
+        <div class="ruta-slot" id="slot-3" data-pos="3"><span class="slot-num">3</span>Paso 3</div>
+        <div class="ruta-arrow">→</div>
+        <div class="ruta-slot" id="slot-4" data-pos="4"><span class="slot-num">4</span>Paso 4</div>
+        <div class="ruta-arrow">→</div>
+        <div class="ruta-slot" id="slot-5" data-pos="5"><span class="slot-num">5</span>Paso 5</div>
+      </div>
+    </div>
+    <div id="ruta-feedback" class="def-box" style="display:none;"></div>
+    <div class="ej-actions">
+      <button class="ej-check-all" onclick="checkRuta()">✔ Verificar orden</button>
+      <button class="ej-reset" onclick="resetRuta()">↺ Reiniciar</button>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- ===== 6. IDENTIFICAR ORGANELA ===== -->
+  <div id="ej-identifica" class="section">
+    <div class="section-title">🔍 Identificar la organela</div>
+    <p>Leé la descripción y escribí el nombre de la organela. No distingue mayúsculas.</p>
+
+    <div class="identifica-item" id="id1">
+      <div class="identifica-clue">
+        <strong>Descripción 1</strong>
+        Organela de doble membrana exclusiva de células vegetales y algales. Contiene clorofila en sus tilacoides y realiza la fotosíntesis. Posee ADN circular propio y ribosomas 70S.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="identifica-answer">
+          <input class="identifica-input" id="id1-inp" placeholder="Escribí aquí..." autocomplete="off"/>
+          <button class="check-btn" onclick="checkIdentifica('id1','cloroplasto',['cloroplasto'])">Verificar</button>
+          <button class="reset-item-btn" onclick="resetIdentificaItem(this.closest('.identifica-item'))">↺</button>
+        </div>
+        <div class="completar-feedback" id="id1-fb"></div>
+      </div>
+    </div>
+
+    <div class="identifica-item" id="id2">
+      <div class="identifica-clue">
+        <strong>Descripción 2</strong>
+        Conjunto de cisternas aplanadas apiladas. Recibe proteínas del RER por su cara cis, las modifica con N-glicosilación y las clasifica en su cara trans para enviarlas a lisosomas, membrana o secreción.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="identifica-answer">
+          <input class="identifica-input" id="id2-inp" placeholder="Escribí aquí..." autocomplete="off"/>
+          <button class="check-btn" onclick="checkIdentifica('id2','aparato de golgi',['aparato de golgi','golgi','aparato de Golgi'])">Verificar</button>
+          <button class="reset-item-btn" onclick="resetIdentificaItem(this.closest('.identifica-item'))">↺</button>
+        </div>
+        <div class="completar-feedback" id="id2-fb"></div>
+      </div>
+    </div>
+
+    <div class="identifica-item" id="id3">
+      <div class="identifica-clue">
+        <strong>Descripción 3</strong>
+        Organela delimitada por una sola membrana. Su contenido tiene pH ~5. Contiene hidrolasas ácidas capaces de degradar casi todas las moléculas orgánicas. Participa en la autofagia celular.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="identifica-answer">
+          <input class="identifica-input" id="id3-inp" placeholder="Escribí aquí..." autocomplete="off"/>
+          <button class="check-btn" onclick="checkIdentifica('id3','lisosoma',['lisosoma','lisosomas'])">Verificar</button>
+          <button class="reset-item-btn" onclick="resetIdentificaItem(this.closest('.identifica-item'))">↺</button>
+        </div>
+        <div class="completar-feedback" id="id3-fb"></div>
+      </div>
+    </div>
+
+    <div class="identifica-item" id="id4">
+      <div class="identifica-clue">
+        <strong>Descripción 4</strong>
+        Complejo ribonucleoproteico sin membrana que puede estar libre en el citosol o asociado al RE rugoso. Es la maquinaria de traducción: sintetiza proteínas a partir de ARNm. En eucariontes es 80S.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="identifica-answer">
+          <input class="identifica-input" id="id4-inp" placeholder="Escribí aquí..." autocomplete="off"/>
+          <button class="check-btn" onclick="checkIdentifica('id4','ribosoma',['ribosoma','ribosomas'])">Verificar</button>
+          <button class="reset-item-btn" onclick="resetIdentificaItem(this.closest('.identifica-item'))">↺</button>
+        </div>
+        <div class="completar-feedback" id="id4-fb"></div>
+      </div>
+    </div>
+
+    <div class="identifica-item" id="id5">
+      <div class="identifica-clue">
+        <strong>Descripción 5</strong>
+        Red extensa de membranas formada por túbulos y cisternas interconectadas. Carece de ribosomas. Sintetiza lípidos y fosfolípidos, metaboliza el glucógeno, detoxifica fármacos y almacena Ca²⁺ en células musculares.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="identifica-answer">
+          <input class="identifica-input" id="id5-inp" placeholder="Escribí aquí..." autocomplete="off"/>
+          <button class="check-btn" onclick="checkIdentifica('id5','retículo endoplasmático liso',['retículo endoplasmático liso','reticulo endoplasmatico liso','re liso','rel','reticulo liso','retículo liso'])">Verificar</button>
+          <button class="reset-item-btn" onclick="resetIdentificaItem(this.closest('.identifica-item'))">↺</button>
+        </div>
+        <div class="completar-feedback" id="id5-fb"></div>
+      </div>
+    </div>
+
+    <div class="identifica-item" id="id6">
+      <div class="identifica-clue">
+        <strong>Descripción 6</strong>
+        Región no delimitada por membrana dentro del núcleo. Es el sitio de síntesis y ensamblaje de las subunidades ribosomales, combinando ARNr con proteínas ribosomales importadas del citoplasma.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="identifica-answer">
+          <input class="identifica-input" id="id6-inp" placeholder="Escribí aquí..." autocomplete="off"/>
+          <button class="check-btn" onclick="checkIdentifica('id6','nucléolo',['nucléolo','nucleolo','nucléolos','nucleolos'])">Verificar</button>
+          <button class="reset-item-btn" onclick="resetIdentificaItem(this.closest('.identifica-item'))">↺</button>
+        </div>
+        <div class="completar-feedback" id="id6-fb"></div>
+      </div>
+    </div>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;"><button class="reset-item-btn" onclick="resetMCItem(this.closest('[id]'))">↺ Reiniciar</button></div>
+    </div><!-- RESULTADO FINAL -->
+  <div id="resultado-final" class="resultado-box">
+    <h3>🎉 ¡Ejercicios completados!</h3>
+    <div class="score-big" id="score-total">—</div>
+    <p id="score-msg">Revisá las respuestas incorrectas y repasá los temas.</p>
+  </div>
+  <div class="ej-actions" style="justify-content:center; margin-top:16px;">
+    <button class="ej-check-all" onclick="calcFinalScore()">📊 Ver puntuación total</button>
+    <button class="ej-reset" onclick="resetAll()">↺ Reiniciar todo</button>
+  </div>
+
+  </section>
+
 </main>
 
 <!-- ===== SCRIPTS ===== -->
@@ -1041,6 +1852,390 @@ graph LR
   }, { rootMargin: '-20% 0px -70% 0px' });
 
   sections.forEach(s => observer.observe(s));
+
+  /* =============================================
+     EJERCICIOS — LÓGICA JAVASCRIPT
+  ============================================= */
+
+  // ---- Contadores ----
+  let mcCorrect  = 0;
+  let vfCorrect  = 0;
+  let matchCorrect = 0;
+  const mcDone   = new Set();
+  const vfDone   = new Set();
+  const matchDone= new Set();
+
+  // ---- OPCIÓN MÚLTIPLE ----
+  function checkMC(btn, itemId, isCorrect) {
+    if (mcDone.has(itemId)) return;
+    mcDone.add(itemId);
+    const item = document.getElementById(itemId);
+    const allBtns = item.querySelectorAll('.opt-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    const feedOk  = item.querySelectorAll('.feedback.ok')[0];
+    const feedErr = item.querySelectorAll('.feedback.err')[0];
+
+    if (isCorrect) {
+      btn.classList.add('selected-correct');
+      feedOk.classList.add('show');
+      item.classList.add('correct');
+      mcCorrect++;
+    } else {
+      btn.classList.add('selected-wrong');
+      feedErr.classList.add('show');
+      item.classList.add('wrong');
+      // resaltar la correcta
+      allBtns.forEach(b => {
+        if (b.onclick && b.onclick.toString().includes('true')) {
+          b.classList.add('reveal-correct');
+        }
+      });
+    }
+    document.getElementById('mc-score').textContent = mcCorrect;
+  }
+
+  // ---- VERDADERO / FALSO ----
+  function checkVF(btn, itemId, isCorrect, selectedVal) {
+    if (vfDone.has(itemId)) return;
+    vfDone.add(itemId);
+    const item = document.getElementById(itemId);
+    const allBtns = item.querySelectorAll('.vf-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    const feedOk  = item.querySelectorAll('.feedback.ok')[0];
+    const feedErr = item.querySelectorAll('.feedback.err')[0];
+
+    const messages = {
+      vf1: { ok: '✔ Correcto. Las arqueas no tienen peptidoglicano.', err: '✘ Falso. Las arqueas NO poseen peptidoglicano en su pared.' },
+      vf2: { ok: '✔ Correcto. El RER tiene ribosomas en su cara citosólica.', err: '✘ Falso. El RER SÍ tiene ribosomas.' },
+      vf3: { ok: '✔ Correcto. Los procariotas tienen ribosomas 70S.', err: '✘ Falso. Los procariotas tienen 70S, no 80S.' },
+      vf4: { ok: '✔ Correcto. Lynn Margulis propuso esta teoría.', err: '✘ Falso. La teoría endosimbiótica sí describe ese origen.' },
+      vf5: { ok: '✔ Correcto. La difusión simple no requiere proteínas.', err: '✘ Falso. La difusión SIMPLE no requiere proteínas; eso es la difusión facilitada.' },
+      vf6: { ok: '✔ Correcto. Las colas hidrofóbicas se orientan hacia adentro.', err: '✘ Falso. Las colas hidrofóbicas se orientan al interior de la bicapa.' },
+      vf7: { ok: '✔ Correcto. El nucléolo no tiene membrana.', err: '✘ Falso. El nucléolo NO está delimitado por membrana.' },
+      vf8: { ok: '✔ Correcto. Las microvellosidades aumentan la superficie de absorción.', err: '✘ Falso. Las microvellosidades SÍ aumentan la superficie.' },
+    };
+
+    if (isCorrect) {
+      btn.classList.add('selected-correct');
+      feedOk.textContent = messages[itemId].ok;
+      feedOk.classList.add('show');
+      item.classList.add('correct');
+      vfCorrect++;
+    } else {
+      btn.classList.add('selected-wrong');
+      feedErr.textContent = messages[itemId].err;
+      feedErr.classList.add('show');
+      item.classList.add('wrong');
+      allBtns.forEach(b => {
+        if ((b.textContent === 'Verdadero' && b.onclick.toString().includes('true,\'V\'')) ||
+            (b.textContent === 'Falso'     && b.onclick.toString().includes('true,\'F\''))) {
+          b.classList.add('reveal-correct');
+        }
+      });
+    }
+    document.getElementById('vf-score').textContent = vfCorrect;
+  }
+
+  function showVFExplanations() {
+    document.getElementById('vf-explanations').style.display = 'block';
+  }
+  function resetVF() {
+    vfCorrect = 0; vfDone.clear();
+    document.getElementById('vf-score').textContent = '0';
+    document.getElementById('vf-explanations').style.display = 'none';
+    for (let i = 1; i <= 8; i++) {
+      const item = document.getElementById('vf'+i);
+      item.className = 'quiz-item';
+      item.querySelectorAll('.vf-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('selected-correct','selected-wrong','reveal-correct');
+      });
+      item.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+    }
+  }
+
+  // ---- COMPLETAR ----
+  function checkCompletarStrict(id, correct, variants) {
+    const inp = document.getElementById(id+'-inp');
+    const fb  = document.getElementById(id+'-fb');
+    const val = inp.value.trim().toLowerCase();
+    const accepted = variants.map(v => v.toLowerCase());
+
+    inp.disabled = true;
+    inp.closest('.completar-item').querySelector('.check-btn').disabled = true;
+
+    if (accepted.includes(val)) {
+      inp.classList.add('correct-input');
+      fb.textContent = '✔ ¡Correcto!';
+      fb.style.color = '#1a6b4a';
+      fb.style.fontWeight = '600';
+    } else {
+      inp.classList.add('wrong-input');
+      fb.textContent = '✘ Incorrecto. La respuesta es: ' + correct;
+      fb.style.color = '#c0392b';
+    }
+    fb.classList.add('show');
+  }
+
+  function showHint(id, msg) {
+    const fb = document.getElementById(id+'-fb');
+    if (!fb.classList.contains('show')) {
+      fb.textContent = msg;
+      fb.style.color = '#2d6a9f';
+      fb.classList.add('show');
+    }
+  }
+
+  // ---- RELACIONAR COLUMNAS ----
+  let matchSelected = null;
+  let matchSelectedSide = null;
+
+  function selectMatch(btn, side, id) {
+    if (btn.classList.contains('matched')) return;
+
+    // Si hay uno del mismo lado ya seleccionado, deseleccionarlo
+    if (matchSelectedSide === side) {
+      document.querySelectorAll('.match-btn.selected').forEach(b => b.classList.remove('selected'));
+      if (matchSelected === id) { matchSelected = null; matchSelectedSide = null; return; }
+    }
+
+    btn.classList.add('selected');
+
+    if (!matchSelected) {
+      matchSelected = id;
+      matchSelectedSide = side;
+    } else {
+      // Hay un seleccionado del otro lado → verificar
+      if (matchSelected === id) {
+        // Correcto
+        document.getElementById('ml'+id).classList.remove('selected');
+        document.getElementById('mr'+id).classList.remove('selected');
+        document.getElementById('ml'+id).classList.add('matched');
+        document.getElementById('mr'+id).classList.add('matched');
+        document.getElementById('ml'+id).disabled = true;
+        document.getElementById('mr'+id).disabled = true;
+        matchCorrect++;
+        document.getElementById('match-score').textContent = matchCorrect;
+        if (matchCorrect === 8) {
+          setTimeout(() => alert('🎉 ¡Emparejaste todos los pares correctamente!'), 200);
+        }
+      } else {
+        // Incorrecto — animación de error
+        document.querySelectorAll('.match-btn.selected').forEach(b => {
+          b.classList.add('wrong-match');
+          setTimeout(() => b.classList.remove('wrong-match', 'selected'), 600);
+        });
+        btn.classList.add('wrong-match');
+        setTimeout(() => btn.classList.remove('wrong-match', 'selected'), 600);
+      }
+      matchSelected = null;
+      matchSelectedSide = null;
+    }
+  }
+
+  function resetMatch() {
+    matchCorrect = 0; matchSelected = null; matchSelectedSide = null;
+    document.getElementById('match-score').textContent = '0';
+    for (let i = 1; i <= 8; i++) {
+      ['ml','mr'].forEach(side => {
+        const b = document.getElementById(side+i);
+        if (b) {
+          b.disabled = false;
+          b.classList.remove('matched','selected','wrong-match');
+        }
+      });
+    }
+  }
+
+  // ---- RUTA SECRETORA ----
+  let draggedChip = null;
+  const rutaCorrect = { 1:'1', 2:'2', 3:'3', 4:'4', 5:'5' };
+  // 1=síntesis RER, 2=RER procesamiento, 3=Golgi, 4=vesículas, 5=membrana
+
+  document.querySelectorAll('.drag-chip').forEach(chip => {
+    chip.addEventListener('dragstart', e => {
+      draggedChip = chip;
+      setTimeout(() => chip.classList.add('dragging'), 0);
+    });
+    chip.addEventListener('dragend', () => {
+      chip.classList.remove('dragging');
+    });
+  });
+
+  document.querySelectorAll('.ruta-slot').forEach(slot => {
+    slot.addEventListener('dragover', e => {
+      e.preventDefault();
+      slot.classList.add('dragover');
+    });
+    slot.addEventListener('dragleave', () => slot.classList.remove('dragover'));
+    slot.addEventListener('drop', e => {
+      e.preventDefault();
+      slot.classList.remove('dragover');
+      if (!draggedChip || slot.dataset.filled) return;
+
+      // Si ya hay un chip en este slot, devolvemos el anterior a la fuente
+      if (slot.dataset.filled) return;
+
+      slot.dataset.filled = draggedChip.dataset.val;
+      slot.dataset.filledId = draggedChip.id;
+      slot.innerHTML = `<span class="slot-num">${slot.dataset.pos}</span>${draggedChip.textContent}`;
+      draggedChip.classList.add('placed');
+      draggedChip = null;
+    });
+  });
+
+  function checkRuta() {
+    const order = [1,2,3,4,5];
+    // Correcto: slot1=chip nuc(1), slot2=chip rer(2), slot3=chip golgi(3), slot4=chip ves(4), slot5=chip mem(5)
+    let correct = 0;
+    order.forEach(pos => {
+      const slot = document.getElementById('slot-'+pos);
+      if (slot.dataset.filled === String(pos)) {
+        slot.classList.add('filled-correct');
+        slot.classList.remove('filled-wrong');
+        correct++;
+      } else if (slot.dataset.filled) {
+        slot.classList.add('filled-wrong');
+        slot.classList.remove('filled-correct');
+      }
+    });
+    const fb = document.getElementById('ruta-feedback');
+    fb.style.display = 'block';
+    if (correct === 5) {
+      fb.style.borderLeftColor = '#2d9466';
+      fb.innerHTML = '<strong style="color:#1a6b4a">✔ ¡Perfecto! Orden correcto:</strong><br>1. Síntesis en ribosomas del RER → 2. RE rugoso (procesamiento) → 3. Aparato de Golgi (modificación) → 4. Vesículas de transporte → 5. Membrana plasmática / Secreción';
+    } else {
+      fb.style.borderLeftColor = '#e53e3e';
+      fb.innerHTML = `<strong style="color:#c0392b">✘ ${correct}/5 correctos.</strong> El orden correcto es:<br>1. Síntesis en ribosomas del RER → 2. RE rugoso → 3. Aparato de Golgi → 4. Vesículas de transporte → 5. Membrana plasmática / Secreción`;
+    }
+  }
+
+  function resetRuta() {
+    document.getElementById('ruta-feedback').style.display = 'none';
+    document.querySelectorAll('.ruta-slot').forEach(slot => {
+      slot.innerHTML = `<span class="slot-num">${slot.dataset.pos}</span>Paso ${slot.dataset.pos}`;
+      slot.classList.remove('filled-correct','filled-wrong');
+      delete slot.dataset.filled;
+      delete slot.dataset.filledId;
+    });
+    document.querySelectorAll('.drag-chip').forEach(chip => {
+      chip.classList.remove('placed','dragging');
+    });
+  }
+
+  // ---- IDENTIFICAR ORGANELA ----
+  function checkIdentifica(id, correct, variants) {
+    const inp = document.getElementById(id+'-inp');
+    const fb  = document.getElementById(id+'-fb');
+    const val = inp.value.trim().toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const accepted = variants.map(v =>
+      v.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')
+    );
+
+    inp.disabled = true;
+    inp.closest('.identifica-item').querySelector('.check-btn').disabled = true;
+
+    if (accepted.includes(val)) {
+      inp.classList.add('correct-input');
+      fb.textContent = '✔ ¡Correcto!';
+      fb.style.color = '#1a6b4a';
+      fb.style.fontWeight = '600';
+    } else {
+      inp.classList.add('wrong-input');
+      fb.textContent = '✘ Incorrecto. La respuesta es: ' + correct;
+      fb.style.color = '#c0392b';
+    }
+    fb.classList.add('show');
+  }
+
+  // ---- PUNTUACIÓN FINAL ----
+  function calcFinalScore() {
+    const total = mcCorrect + vfCorrect + matchCorrect;
+    const maxPts = 10 + 8 + 8; // 26 puntos máx
+    const pct = Math.round((total / maxPts) * 100);
+    const box = document.getElementById('resultado-final');
+    const msg = document.getElementById('score-msg');
+    document.getElementById('score-total').textContent = `${total} / ${maxPts}  (${pct}%)`;
+    if (pct >= 90) msg.textContent = '🏆 ¡Excelente! Dominás el contenido.';
+    else if (pct >= 70) msg.textContent = '👍 ¡Muy bien! Repasá los puntos incorrectos.';
+    else if (pct >= 50) msg.textContent = '📖 Regular. Revisá las secciones con errores.';
+    else msg.textContent = '💪 Necesitás repasar el material. ¡No te rindas!';
+    box.classList.add('show');
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetAll() {
+    location.reload();
+  }
+
+  // ---- REINICIAR ÍTEMS INDIVIDUALES ----
+  function resetMCItem(item) {
+    const id = item.id;
+    mcDone.delete(id);
+    item.className = 'quiz-item';
+    item.querySelectorAll('.opt-btn').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('selected-correct','selected-wrong','reveal-correct');
+    });
+    item.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+  }
+
+  function resetVFItem(item) {
+    const id = item.id;
+    vfDone.delete(id);
+    item.className = 'quiz-item';
+    item.querySelectorAll('.vf-btn').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('selected-correct','selected-wrong','reveal-correct');
+    });
+    item.querySelectorAll('.feedback').forEach(f => {
+      f.classList.remove('show');
+      f.textContent = '';
+    });
+  }
+
+  function resetCompletarItem(item) {
+    const inp = item.querySelector('.blank-input');
+    const fb  = item.querySelector('.completar-feedback');
+    const btn = item.querySelector('.check-btn');
+    inp.value = '';
+    inp.disabled = false;
+    inp.classList.remove('correct-input','wrong-input');
+    btn.disabled = false;
+    fb.textContent = '';
+    fb.classList.remove('show');
+    fb.style.color = '';
+    fb.style.fontWeight = '';
+  }
+
+  function resetIdentificaItem(item) {
+    const inp = item.querySelector('.identifica-input');
+    const fb  = item.querySelector('.completar-feedback');
+    const btn = item.querySelector('.check-btn');
+    inp.value = '';
+    inp.disabled = false;
+    inp.classList.remove('correct-input','wrong-input');
+    btn.disabled = false;
+    fb.textContent = '';
+    fb.classList.remove('show');
+    fb.style.color = '';
+    fb.style.fontWeight = '';
+  }
+
+  // Enter en inputs de completar e identificar
+  document.querySelectorAll('.blank-input, .identifica-input').forEach(inp => {
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const btn = inp.parentElement.querySelector('.check-btn') ||
+                    inp.closest('.completar-item, .identifica-item').querySelector('.check-btn');
+        if (btn && !btn.disabled) btn.click();
+      }
+    });
+  });
+
 </script>
 </body>
 </html>
