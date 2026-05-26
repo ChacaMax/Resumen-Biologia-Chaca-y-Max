@@ -184,8 +184,9 @@
       margin: 12px 0;
       font-size: 0.88rem;
     }
-    .def-box strong { color: var(--primary); display: block; margin-bottom: 4px; font-size: 0.92rem; }
-    .def-box p { margin: 0; color: var(--text-soft); }
+    .def-box > strong { color: var(--primary); display: block; margin-bottom: 4px; font-size: 0.92rem; }
+    .def-box p { margin: 0; color: var(--text-soft); line-height: 1.75; }
+    .def-box p strong { color: var(--primary); display: inline; font-size: inherit; }
 
     /* ===== TABLE ===== */
     .table-wrap { overflow-x: auto; margin: 16px 0; }
@@ -617,45 +618,48 @@
     <p>La biología es la ciencia que estudia a los seres vivos en todos sus niveles de organización. La <strong>Biología General</strong> abarca los conceptos fundamentales que permiten comprender la vida desde sus moléculas constituyentes hasta los ecosistemas.</p>
 
     <div class="subsection-title">Niveles de organización de los seres vivos</div>
+    <p>Los seres vivos presentan una organización jerárquica: cada nivel superior integra y emerge de los niveles inferiores. La complejidad creciente permite funciones que no existirían en los componentes individuales.</p>
     <div class="cards">
       <div class="card">
         <h4>🔬 Nivel molecular</h4>
-        <p>Átomos y moléculas orgánicas: agua, carbohidratos, lípidos, proteínas y ácidos nucleicos.</p>
+        <p>Átomos y moléculas orgánicas: agua, carbohidratos, lípidos, proteínas y ácidos nucleicos. Las interacciones entre estas moléculas (enlaces covalentes, puentes de hidrógeno, fuerzas de Van der Waals) determinan la estructura y función de los niveles superiores. El carbono es el elemento central de las biomoléculas por su capacidad de formar 4 enlaces covalentes y cadenas largas.</p>
       </div>
       <div class="card">
         <h4>🧬 Nivel celular</h4>
-        <p>La célula es la unidad estructural y funcional de todos los seres vivos.</p>
+        <p>La célula es la unidad estructural, funcional y de origen de todos los seres vivos. Puede ser independiente (organismos unicelulares como bacterias y levaduras) o parte de un organismo pluricelular. Dentro de la célula ocurren todas las reacciones metabólicas necesarias para la vida: obtención de energía, síntesis de moléculas, reproducción y respuesta al entorno.</p>
       </div>
       <div class="card">
         <h4>🫀 Nivel tisular</h4>
-        <p>Conjunto de células con estructura y función similares formando tejidos.</p>
+        <p>Conjunto de células con estructura, función y origen similares que actúan coordinadamente. En animales existen 4 tejidos fundamentales: epitelial (recubrimiento y secreción), conectivo (soporte y unión), muscular (contracción) y nervioso (conducción de impulsos). En plantas: meristemático, fundamental, dérmico y vascular.</p>
       </div>
       <div class="card">
         <h4>🫁 Nivel orgánico</h4>
-        <p>Conjunto de tejidos que forman órganos con funciones específicas.</p>
+        <p>Conjunto de tejidos organizados para realizar una función específica. Por ejemplo, el corazón está formado por tejido muscular cardíaco, tejido conectivo (válvulas, pericardio) y tejido nervioso (nodos para el marcapasos). Cada tejido aporta una función diferente, pero trabajan en conjunto para bombear sangre.</p>
       </div>
       <div class="card">
         <h4>🧍 Nivel sistémico</h4>
-        <p>Conjunto de órganos que interactúan para cumplir una función mayor.</p>
+        <p>Conjunto de órganos que interactúan para cumplir una función fisiológica mayor. Ejemplos: sistema digestivo (boca, esófago, estómago, intestinos, hígado, páncreas), sistema circulatorio (corazón, arterias, venas, capilares), sistema nervioso (encéfalo, médula espinal, nervios periféricos). Los sistemas se integran y regulan mutuamente mediante señales hormonales y nerviosas.</p>
       </div>
       <div class="card">
         <h4>🌍 Nivel de organismo</h4>
-        <p>Individuo completo, resultado de la coordinación de todos los sistemas.</p>
+        <p>Individuo completo, resultado de la coordinación de todos los sistemas. Mantiene la homeostasis (equilibrio interno) frente a cambios del ambiente. A partir del nivel de organismo, se distinguen también el nivel poblacional (conjunto de individuos de la misma especie), el comunitario (diferentes especies en un hábitat) y el ecosistémico (comunidades + factores abióticos).</p>
       </div>
     </div>
 
     <div class="subsection-title">Propiedades de los seres vivos</div>
+    <p>Todos los organismos comparten un conjunto de propiedades que los distinguen de la materia inerte. Ninguna propiedad por sí sola define la vida; es la combinación de todas ellas lo que caracteriza a un ser vivo.</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Propiedad</th><th>Descripción</th></tr></thead>
+        <thead><tr><th>Propiedad</th><th>Descripción</th><th>Ejemplo</th></tr></thead>
         <tbody>
-          <tr><td><strong>Composición química</strong></td><td>Formados por moléculas orgánicas (C, H, O, N, P, S) e inorgánicas</td></tr>
-          <tr><td><strong>Organización celular</strong></td><td>Toda forma de vida está compuesta por células</td></tr>
-          <tr><td><strong>Metabolismo</strong></td><td>Conjunto de reacciones químicas que mantienen la vida (anabolismo + catabolismo)</td></tr>
-          <tr><td><strong>Ciclo celular</strong></td><td>Capacidad de crecer y reproducirse</td></tr>
-          <tr><td><strong>Herencia</strong></td><td>Transmisión de información genética a la descendencia</td></tr>
-          <tr><td><strong>Nutrición</strong></td><td>Capacidad de obtener y procesar materia y energía del ambiente</td></tr>
-          <tr><td><strong>Enzimas</strong></td><td>Catalizadores biológicos que regulan las reacciones metabólicas</td></tr>
+          <tr><td><strong>Composición química</strong></td><td>Formados por moléculas orgánicas (C, H, O, N, P, S) e inorgánicas. El carbono es el esqueleto de todas las biomoléculas por su versatilidad para formar cadenas y anillos.</td><td>El ADN humano contiene ~3.000 millones de pares de bases carbonadas</td></tr>
+          <tr><td><strong>Organización celular</strong></td><td>Toda forma de vida está compuesta por una o más células. La célula es el nivel más simple capaz de realizar todas las funciones vitales de forma autónoma.</td><td>Las bacterias son unicelulares; el cuerpo humano tiene ~37 billones de células</td></tr>
+          <tr><td><strong>Metabolismo</strong></td><td>Conjunto de reacciones químicas que mantienen la vida. El <strong>anabolismo</strong> sintetiza moléculas complejas gastando energía (ej.: síntesis de proteínas). El <strong>catabolismo</strong> degrada moléculas liberando energía (ej.: glucólisis, respiración celular).</td><td>La fotosíntesis es anabolismo; la digestión es catabolismo</td></tr>
+          <tr><td><strong>Crecimiento y reproducción</strong></td><td>Los seres vivos crecen incorporando materia (anabolismo > catabolismo) y se reproducen transmitiendo su información genética. La reproducción puede ser asexual (copia idéntica) o sexual (recombinación genética).</td><td>Una bacteria puede dividirse cada 20 minutos por fisión binaria</td></tr>
+          <tr><td><strong>Herencia</strong></td><td>Transmisión de información genética (ADN) a la descendencia. Las mutaciones introducen variabilidad que, junto con la selección natural, impulsa la evolución.</td><td>Los genes del color de ojos se heredan de padres a hijos</td></tr>
+          <tr><td><strong>Nutrición</strong></td><td>Capacidad de obtener y procesar materia y energía del ambiente. Los <strong>autótrofos</strong> producen su propio alimento (plantas, algas, cianobacterias); los <strong>heterótrofos</strong> dependen de otros organismos.</td><td>Las plantas captan energía solar; los animales ingieren alimentos</td></tr>
+          <tr><td><strong>Respuesta al estímulo</strong></td><td>Los organismos detectan cambios en el ambiente (estímulos) y responden adaptando su comportamiento o fisiología. Permite sobrevivir y mantener la homeostasis.</td><td>Las plantas orientan sus hojas hacia la luz (fototropismo); los animales huyen de depredadores</td></tr>
+          <tr><td><strong>Homeostasis</strong></td><td>Capacidad de mantener constante el medio interno frente a cambios externos. Se regula mediante mecanismos de retroalimentación negativa.</td><td>El cuerpo humano mantiene la temperatura corporal en ~37°C y el pH sanguíneo en 7,4</td></tr>
         </tbody>
       </table>
     </div>
@@ -691,19 +695,19 @@ graph TD
   <div id="clasificacion" class="section">
     <div class="section-title">🌳 Clasificación de los seres vivos <span class="badge">PDF</span></div>
 
-    <p>La clasificación biológica moderna abandona el sistema de los «cinco reinos» en favor de un enfoque basado en el análisis del <strong>ARN ribosómico</strong> (ARNr 16S y 18S), propuesto por <strong>Carl Woese en 1990</strong>. El resultado es una clasificación en <strong>3 dominios</strong>.</p>
+    <p>La clasificación biológica moderna abandona el sistema de los «cinco reinos» en favor de un enfoque basado en el análisis del <strong>ARN ribosómico</strong> (ARNr 16S y 18S), propuesto por <strong>Carl Woese en 1990</strong>. El resultado es una clasificación en <strong>3 dominios</strong>. Este sistema refleja las relaciones evolutivas reales entre los organismos (filogenia), en lugar de agruparlos solo por rasgos morfológicos.</p>
 
     <div class="def-box">
       <strong>Dominio Archaea (Arqueas)</strong>
-      <p>Organismos procariotas unicelulares. Difieren genéticamente de las bacterias: su pared celular carece de peptidoglicano y sus lípidos de membrana presentan enlaces éter. Muchos viven en ambientes extremos (termófilos, halófilos, metanógenos).</p>
+      <p>Organismos procariotas unicelulares. Difieren genéticamente de las bacterias: su pared celular <strong>carece de peptidoglicano</strong> y sus lípidos de membrana presentan <strong>enlaces éter</strong> (más resistentes al calor que los enlaces éster de bacterias y eucariontes). Su maquinaria de transcripción y traducción es más similar a la de los eucariontes que a la de las bacterias. Muchos viven en <strong>ambientes extremos</strong>: termófilos (fuentes hidrotermales, >80°C), halófilos (salinas hipersalinas), metanógenos (producen CH₄ en pantanos y tracto digestivo de rumiantes), acidófilos (pH muy bajo). No se conocen arqueas patógenas para humanos.</p>
     </div>
     <div class="def-box">
       <strong>Dominio Bacteria (Bacterias)</strong>
-      <p>Procariotas unicelulares con pared celular de peptidoglicano. Presentan gran diversidad metabólica: autótrofas, heterótrofas, aeróbicas, anaeróbicas. Incluyen las cianobacterias, proteobacterias, firmicutes, etc.</p>
+      <p>Procariotas unicelulares con pared celular de <strong>peptidoglicano</strong> (excepto micoplasmas). Presentan gran diversidad metabólica: pueden ser autótrofas (fotosíntesis oxigénica como las cianobacterias, o quimiosíntesis) o heterótrofas; aeróbicas, anaeróbicas o facultativas. La tinción de Gram permite clasificarlas: <strong>Gram positivas</strong> (pared gruesa de peptidoglicano, retienen cristal violeta, ej.: <em>Staphylococcus</em>) y <strong>Gram negativas</strong> (pared delgada + membrana externa de lipopolisacárido, ej.: <em>E. coli</em>). Incluyen grupos como cianobacterias, proteobacterias, firmicutes, actinobacterias y espiroquetas. Tienen un rol ecológico esencial: ciclos de nitrógeno, carbono y azufre.</p>
     </div>
     <div class="def-box">
       <strong>Dominio Eukarya (Eucariotas)</strong>
-      <p>Organismos cuyas células poseen núcleo verdadero delimitado por envoltura nuclear. Incluye animales, plantas, hongos y protistas. Se organizan en múltiples supergrupos basados en filogenia molecular.</p>
+      <p>Organismos cuyas células poseen <strong>núcleo verdadero</strong> delimitado por envoltura nuclear y organelas membranosas. El material genético está organizado en <strong>cromosomas lineales</strong> asociados a proteínas histonas. Se organizan en múltiples supergrupos basados en filogenia molecular: <strong>Animalia</strong> (heterótrofos pluricelulares sin pared celular), <strong>Plantae</strong> (autótrofos con pared de celulosa y cloroplastos), <strong>Fungi</strong> (heterótrofos absortivos con pared de quitina), y <strong>Protista</strong> (grupo parafilético de eucariotas uni o pluricelulares que no encajan en los otros reinos, ej.: algas, amebas, plasmodios). La complejidad eucarionte surgió, según la teoría endosimbiótica, a partir de la incorporación de bacterias ancestrales que dieron origen a mitocondrias y cloroplastos.</p>
     </div>
 
     <div class="mermaid-wrap">
@@ -738,32 +742,32 @@ graph TD
   <div id="composicion" class="section">
     <div class="section-title">⚗️ Composición química de los seres vivos <span class="badge">Parte 1</span></div>
 
-    <p>Los seres vivos están formados principalmente por <strong>carbono, hidrógeno, oxígeno y nitrógeno</strong>. Sus moléculas se clasifican en inorgánicas (agua, sales minerales) y orgánicas (biomoléculas).</p>
+    <p>Los seres vivos están formados principalmente por <strong>carbono, hidrógeno, oxígeno y nitrógeno</strong> (CHON), que representan más del 96% de la masa corporal. También son esenciales el fósforo (P) y el azufre (S). Sus moléculas se clasifican en inorgánicas (agua, sales minerales) y orgánicas (biomoléculas). La <strong>quiralidad</strong> es una propiedad importante: la mayoría de los aminoácidos biológicos son L-aminoácidos y los azúcares son D-azúcares.</p>
 
     <div class="cards">
       <div class="card">
         <h4>💧 Agua</h4>
-        <p>Molécula más abundante. Solvente universal, medio de reacciones, regulador térmico, transporte de nutrientes.</p>
+        <p>Molécula más abundante en los seres vivos (60–70% del peso corporal). Su polaridad le permite actuar como <strong>solvente universal</strong> disolviendo iones y moléculas polares. Participa directamente en reacciones de hidrólisis y condensación. Su elevada capacidad calorífica actúa como <strong>regulador térmico</strong>, amortiguando cambios bruscos de temperatura. La cohesión entre moléculas de agua genera tensión superficial y permite el transporte en el xilema vegetal. Forma puentes de hidrógeno que estabilizan estructuras proteicas y de ADN.</p>
       </div>
       <div class="card">
         <h4>🍞 Carbohidratos (glúcidos)</h4>
-        <p>Fuente primaria de energía. Monosacáridos (glucosa), disacáridos (sacarosa) y polisacáridos (almidón, glucógeno, celulosa).</p>
+        <p>Compuestos de C, H y O en proporción (CH₂O)n. Función principal: <strong>fuente rápida de energía</strong> (1g = ~4 kcal). Los <strong>monosacáridos</strong> (glucosa, fructosa, galactosa, ribosa) son las unidades básicas y la principal fuente de energía celular. Los <strong>disacáridos</strong> (sacarosa = glucosa + fructosa; lactosa = glucosa + galactosa; maltosa = glucosa + glucosa) se transportan en la sangre o savia. Los <strong>polisacáridos</strong> tienen funciones de reserva (almidón en plantas, glucógeno en animales) o estructurales (celulosa en paredes vegetales, quitina en hongos e insectos).</p>
       </div>
       <div class="card">
         <h4>🧈 Lípidos</h4>
-        <p>Reserva energética, componentes de membrana (fosfolípidos), hormonas esteroides. Incluyen grasas, aceites y ceras.</p>
+        <p>Moléculas hidrofóbicas o anfipáticas formadas principalmente por C, H y O (con P y N en fosfolípidos). Función de <strong>reserva energética</strong> (1g = ~9 kcal, más del doble que carbohidratos). Los <strong>fosfolípidos</strong> son el componente estructural de las membranas biológicas. Las <strong>hormonas esteroides</strong> (estrógenos, testosterona, cortisol) regulan procesos fisiológicos clave. Las <strong>vitaminas liposolubles</strong> (A, D, E, K) requieren lípidos para absorberse. También funcionan como aislantes térmicos y protectores de órganos.</p>
       </div>
       <div class="card">
         <h4>🔩 Proteínas</h4>
-        <p>Polímeros de aminoácidos. Funciones estructurales, enzimáticas, de transporte, defensa inmune y regulación.</p>
+        <p>Polímeros de aminoácidos (hay 20 tipos, unidos por enlaces peptídicos). Son las moléculas más diversas funcionalmente: <strong>enzimas</strong> (catalizan reacciones), <strong>estructurales</strong> (colágeno, queratina, actina), <strong>transporte</strong> (hemoglobina, albúmina), <strong>defensivas</strong> (anticuerpos/inmunoglobulinas), <strong>hormonales peptídicas</strong> (insulina, glucagón), <strong>receptoras</strong> (en membranas celulares) y <strong>motoras</strong> (miosina, dineína, kinesina). Su función depende de su estructura tridimensional (conformación).</p>
       </div>
       <div class="card">
         <h4>🧬 Ácidos nucleicos</h4>
-        <p>ADN (portador de información genética) y ARN (intermediario en la expresión génica). Compuestos por nucleótidos.</p>
+        <p>El <strong>ADN</strong> (ácido desoxirribonucleico) almacena la información genética de forma estable en doble hélice. El <strong>ARN</strong> tiene múltiples roles: el ARNm (mensajero) lleva la información del ADN al ribosoma; el ARNt (transferente) aporta los aminoácidos durante la traducción; el ARNr (ribosomal) forma parte estructural del ribosoma y cataliza la síntesis proteica. Compuestos por nucleótidos (base nitrogenada + azúcar pentosa + grupo fosfato). El flujo de información es: ADN → ARN → Proteína (dogma central de la biología molecular).</p>
       </div>
       <div class="card">
         <h4>⚡ Enzimas</h4>
-        <p>Proteínas catalizadoras que aceleran reacciones metabólicas reduciendo la energía de activación. Altamente específicas.</p>
+        <p>Proteínas (o ARN catalítico = ribozimas) que aceleran reacciones metabólicas reduciendo la <strong>energía de activación</strong>, sin consumirse en la reacción. Son altamente <strong>específicas</strong>: cada enzima tiene un sitio activo complementario a su sustrato (modelo llave-cerradura o inducción inducida). Su actividad es regulada por temperatura, pH, concentración de sustrato, inhibidores (competitivos o no competitivos) y moduladores alostéricos. Ejemplos: ADN polimerasa (replica el ADN), amilasa salival (digiere almidón), catalasa (descompone H₂O₂).</p>
       </div>
     </div>
 
@@ -802,38 +806,42 @@ graph LR
     <div class="section-title">🧬 Ácidos nucleicos y lípidos <span class="badge">PDF</span></div>
 
     <div class="subsection-title">Ácidos nucleicos</div>
-    <p>Los ácidos nucleicos son polímeros de <strong>nucleótidos</strong>. Cada nucleótido está formado por un azúcar pentosa, un grupo fosfato y una base nitrogenada.</p>
+    <p>Los ácidos nucleicos son los <strong>portadores y procesadores de la información genética</strong>. Son polímeros de <strong>nucleótidos</strong>, cada uno formado por: (1) un <strong>azúcar pentosa</strong> (ribosa en ARN, desoxirribosa en ADN), (2) un <strong>grupo fosfato</strong> (con carga negativa, confiere acidez), y (3) una <strong>base nitrogenada</strong> (purinas: adenina y guanina; pirimidinas: citosina, timina en ADN, uracilo en ARN). Los nucleótidos se unen por <strong>enlaces fosfodiéster</strong> entre el carbono 3' de un azúcar y el fosfato unido al carbono 5' del siguiente, formando la cadena con orientación 5'→3'.</p>
 
     <div class="table-wrap">
       <table>
         <thead><tr><th>Característica</th><th>ADN</th><th>ARN</th></tr></thead>
         <tbody>
-          <tr><td>Azúcar</td><td>Desoxirribosa</td><td>Ribosa</td></tr>
-          <tr><td>Bases</td><td>A, T, G, C</td><td>A, U, G, C</td></tr>
-          <tr><td>Estructura</td><td>Doble hélice</td><td>Cadena simple</td></tr>
-          <tr><td>Función</td><td>Almacenar información genética</td><td>Síntesis proteica (ARNm, ARNt, ARNr)</td></tr>
-          <tr><td>Localización</td><td>Núcleo, mitocondrias, cloroplastos</td><td>Núcleo y citoplasma</td></tr>
+          <tr><td>Azúcar</td><td>Desoxirribosa (sin –OH en C2')</td><td>Ribosa (con –OH en C2')</td></tr>
+          <tr><td>Bases nitrogenadas</td><td>Adenina (A), Timina (T), Guanina (G), Citosina (C)</td><td>Adenina (A), Uracilo (U), Guanina (G), Citosina (C)</td></tr>
+          <tr><td>Complementariedad</td><td>A=T (2 puentes H); G≡C (3 puentes H)</td><td>A=U (2 puentes H); G≡C (3 puentes H); G≡U wobble</td></tr>
+          <tr><td>Estructura</td><td>Doble hélice antiparalela (Watson y Crick, 1953)</td><td>Cadena simple (puede plegarse en estructuras secundarias: horquillas, bucles)</td></tr>
+          <tr><td>Función</td><td>Almacenamiento estable de la información genética; replicación (duplicación semiconservativa antes de la división celular)</td><td>ARNm: lleva la información del ADN al ribosoma; ARNt: adaptor entre codón y aminoácido; ARNr: componente catalítico del ribosoma; ARNnc: reguladores</td></tr>
+          <tr><td>Localización</td><td>Núcleo (cromatina), mitocondrias, cloroplastos</td><td>Núcleo (síntesis y procesamiento) y citoplasma (función)</td></tr>
+          <tr><td>Estabilidad</td><td>Muy estable (la desoxirribosa y la doble hélice lo protegen de hidrólisis espontánea)</td><td>Menos estable (el –OH de la ribosa facilita la hidrólisis; las ARNasas son ubicuas)</td></tr>
+          <tr><td>Síntesis</td><td>ADN polimerasa (replicación); no puede sintetizarse de novo a partir de ARN (salvo retrovirus con transcriptasa inversa)</td><td>ARN polimerasa (transcripción a partir del ADN molde)</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="subsection-title">Lípidos</div>
+    <p>Los lípidos son un grupo heterogéneo de moléculas definidas por su <strong>insolubilidad en agua</strong> y solubilidad en solventes orgánicos (cloroformo, éter). Esta propiedad se debe a su carácter predominantemente apolar. Son moléculas energéticamente densas y desempeñan roles estructurales, energéticos, de señalización y de protección.</p>
     <div class="cards">
       <div class="card">
         <h4>🔶 Fosfolípidos</h4>
-        <p>Componentes principales de las membranas biológicas. Poseen cabeza polar hidrofílica y dos colas apolares hidrofóbicas. Forman bicapas espontáneamente en medio acuoso.</p>
+        <p>Componentes principales de las membranas biológicas. Poseen una <strong>cabeza polar hidrofílica</strong> (glicerol + fosfato + alcohol) y <strong>dos colas apolares hidrofóbicas</strong> (ácidos grasos). En medio acuoso forman espontáneamente <strong>bicapas</strong> o liposomas. Los ácidos grasos insaturados (con dobles ligaduras) generan colas con "codos" que aumentan la fluidez de la membrana. Los saturados dan membranas más rígidas y ordenadas. Ejemplos: fosfatidilcolina, fosfatidilserina, fosfatidilinositol.</p>
       </div>
       <div class="card">
         <h4>🔷 Esteroles (colesterol)</h4>
-        <p>Regulan la fluidez de la membrana plasmática. Precursor de hormonas esteroides, vitamina D y ácidos biliares.</p>
+        <p>Lípidos con estructura de 4 anillos fusionados. El <strong>colesterol</strong> en membranas animales regula la fluidez: a bajas temperaturas evita la solidificación intercalándose entre los fosfolípidos; a altas temperaturas reduce el exceso de fluidez. Es precursor de <strong>hormonas esteroides</strong> (cortisol, estrógenos, testosterona, aldosterona), <strong>vitamina D</strong> (regulación del calcio) y <strong>ácidos biliares</strong> (emulsificación de grasas en digestión). El colesterol viaja en sangre unido a lipoproteínas (LDL, HDL).</p>
       </div>
       <div class="card">
-        <h4>🟠 Triacilgliceroles</h4>
-        <p>Reserva energética principal. Forman el tejido adiposo. Almacenan más energía por gramo que los carbohidratos.</p>
+        <h4>🟠 Triacilgliceroles (triglicéridos)</h4>
+        <p>Formados por glicerol + 3 ácidos grasos. Principal forma de <strong>reserva energética</strong> en animales (tejido adiposo) y plantas (aceites en semillas). Almacenan ~9 kcal/g, más del doble que carbohidratos y proteínas. El tejido adiposo también actúa como aislante térmico, amortiguador mecánico y órgano endocrino (secreta adipokinas como la leptina). En ayuno, los triglicéridos se hidrolizan por lipasas y los ácidos grasos se oxidan en la β-oxidación mitocondrial.</p>
       </div>
       <div class="card">
         <h4>🟡 Ceras</h4>
-        <p>Ésteres de ácidos grasos y alcoholes de cadena larga. Función protectora e impermeabilizante (cubierta de hojas, piel, exoesqueleto de insectos).</p>
+        <p>Ésteres de ácidos grasos de cadena larga + alcoholes de cadena larga (no glicerol). Son altamente hidrofóbicas y físicamente resistentes. Función principal: <strong>impermeabilización y protección</strong>. En plantas forman la cutícula de las hojas reduciendo la pérdida de agua. En animales recubren plumas y pelo (impermeabilización). En artrópodos forman parte del exoesqueleto impermeable. También las abejas producen cera de abejas (mezcla de ésteres y alcanos) para construir panales.</p>
       </div>
     </div>
   </div>
@@ -846,25 +854,25 @@ graph LR
   <div id="celula" class="section">
     <div class="section-title">🔬 La Célula — Generalidades <span class="badge">Teórica 3</span></div>
 
-    <p>La <strong>célula</strong> es la unidad estructural, funcional y de origen de todos los seres vivos. Toda célula proviene de otra célula preexistente (<em>teoría celular</em>).</p>
+    <p>La <strong>célula</strong> es la unidad estructural, funcional y de origen de todos los seres vivos. Toda célula proviene de otra célula preexistente (<em>teoría celular</em>). Las células varían enormemente en tamaño (desde 1–10 µm en bacterias hasta >1 m en neuronas de jirafa), forma (esférica, cúbica, estrellada, alargada) y función, pero todas comparten características fundamentales.</p>
 
     <div class="def-box">
       <strong>Teoría celular (Schleiden, Schwann y Virchow, s. XIX)</strong>
-      <p>1. Todos los seres vivos están formados por células. 2. La célula es la unidad estructural y funcional de la vida. 3. Toda célula proviene de una célula preexistente.</p>
+      <p>1. Todos los seres vivos están formados por células. 2. La célula es la unidad estructural y funcional de la vida. 3. Toda célula proviene de una célula preexistente (omnis cellula e cellula, Virchow, 1855). Esta teoría unificó la biología y estableció que la vida no surge espontáneamente, refutando la <em>generación espontánea</em>.</p>
     </div>
 
     <div class="cards">
       <div class="card">
         <h4>Membrana plasmática</h4>
-        <p>Bicapa lipídica con proteínas. Delimita la célula y regula el intercambio de sustancias con el entorno.</p>
+        <p>Bicapa lipídica con proteínas integrales y periféricas. Delimita la célula y separa el interior del medio externo. Regula selectivamente el intercambio de sustancias (permeabilidad selectiva): permite el paso de O₂, CO₂ y agua, pero controla el de iones, glucosa y macromoléculas. También interviene en la recepción de señales, adhesión celular y presentación de antígenos (reconocimiento inmune).</p>
       </div>
       <div class="card">
         <h4>Citoplasma</h4>
-        <p>Región entre la membrana y el núcleo. Contiene el citosol, el citoesqueleto y las organelas.</p>
+        <p>Región entre la membrana y el núcleo. Contiene el <strong>citosol</strong> (solución acuosa con enzimas, iones y metabolitos), el <strong>citoesqueleto</strong> (red de filamentos proteicos que da forma, soporte y permite el movimiento celular) y las <strong>organelas</strong> (compartimientos especializados que dividen el trabajo celular). En la célula procarionte no hay organelas membranosas ni núcleo diferenciado.</p>
       </div>
       <div class="card">
         <h4>Material genético</h4>
-        <p>En procariontes: ADN circular libre en el nucleoide. En eucariontes: ADN lineal en el núcleo rodeado de envoltura nuclear.</p>
+        <p>Portador de la información hereditaria en forma de ADN. En <strong>procariontes</strong>: ADN circular desnudo (sin histonas) concentrado en el <strong>nucleoide</strong>, región del citoplasma no delimitada por membrana. Pueden tener también <strong>plásmidos</strong> (ADN circular extracromosómico con genes de resistencia antibiótica, etc.). En <strong>eucariontes</strong>: ADN lineal asociado a histonas (formando <strong>cromatina</strong>) dentro del núcleo rodeado de envoltura nuclear de doble membrana.</p>
       </div>
     </div>
 
@@ -918,13 +926,14 @@ graph TD
       </table>
     </div>
 
-    <div class="subsection-title">Los 5 reinos (clasificación clásica)</div>
+    <div class="subsection-title">Los 5 reinos (clasificación clásica de Whittaker, 1969)</div>
+    <p>Aunque superada por el sistema de 3 dominios, la clasificación en reinos sigue siendo útil didácticamente. Se basa en el tipo de célula, modo de nutrición y nivel de organización.</p>
     <div class="cards">
-      <div class="card"><h4>🦁 Animalia</h4><p>Eucariotas, pluricelulares, heterótrofos, sin pared celular.</p></div>
-      <div class="card"><h4>🌿 Plantae</h4><p>Eucariotas, pluricelulares, autótrofas por fotosíntesis. Pared de celulosa.</p></div>
-      <div class="card"><h4>🍄 Fungi</h4><p>Eucariotas, heterotrófos por absorción. Pared de quitina.</p></div>
-      <div class="card"><h4>🦠 Protista</h4><p>Eucariotas unicelulares o coloniales. Extremadamente diversos.</p></div>
-      <div class="card"><h4>🔬 Monera</h4><p>Procariotas (bacterias y arqueas). Hoy sustituido por los dominios Archaea y Bacteria.</p></div>
+      <div class="card"><h4>🦁 Animalia</h4><p>Eucariotas pluricelulares, heterótrofos por ingestión (consumen alimento sólido y lo digieren internamente), sin pared celular ni cloroplastos. Se desarrollan a partir de un embrión. Presentan tejidos especializados y en la mayoría casos movilidad activa. Incluyen invertebrados (esponjas, moluscos, insectos, equinodermos) y vertebrados (peces, anfibios, reptiles, aves, mamíferos).</p></div>
+      <div class="card"><h4>🌿 Plantae</h4><p>Eucariotas pluricelulares, autótrofas por fotosíntesis (usan luz solar, CO₂ y agua para producir glucosa). Pared celular de <strong>celulosa</strong>, cloroplastos con clorofila, vacuola central. La mayoría son terrestres o acuáticas. Incluyen briófitas (musgos, sin tejido vascular), pteridófitas (helechos, con vasos pero sin semilla) y espermatófitas (con semilla: gimnospermas como pinos y angiospermas como flores).</p></div>
+      <div class="card"><h4>🍄 Fungi</h4><p>Eucariotas, mayormente pluricelulares (excepción: levaduras unicelulares), heterótrofos por <strong>absorción</strong>: secretan enzimas digestivas al exterior y absorben los nutrientes resultantes. Pared de <strong>quitina</strong>. Cuerpo formado por hifas (filamentos) que forman el micelio. Descomponedores clave en ecosistemas. Incluyen mohos, hongos de sombrero (basidiomicetos), levaduras (ascomicetos). Forman micorrizas (simbiosis con raíces vegetales) y líquenes (simbiosis con algas).</p></div>
+      <div class="card"><h4>🦠 Protista</h4><p>Eucariotas unicelulares o coloniales de enorme diversidad. Son un grupo <strong>parafilético</strong> (no comparten un único ancestro común exclusivo). Incluyen algas unicelulares fotosintéticas (diatomeas, dinoflagelados), protozoos heterótrofos (amebas, ciliados como Paramecium, flagelados), y organismos similares a hongos (oomicetos). Algunos son parásitos importantes: <em>Plasmodium</em> (malaria), <em>Trypanosoma</em> (enfermedad de Chagas).</p></div>
+      <div class="card"><h4>🔬 Monera</h4><p>Procariotas: bacterias y arqueas. Hoy este reino está <strong>obsoleto</strong> y fue reemplazado por los dominios Archaea y Bacteria, dado que arqueas y bacterias son tan diferentes entre sí como lo son con los eucariontes. Histórico papel en la propuesta de la clasificación en 3 dominios de Woese (1990) basada en secuencias del ARNr 16S.</p></div>
     </div>
   </div>
 
@@ -936,20 +945,20 @@ graph TD
   <div id="biomembranas" class="section">
     <div class="section-title">🧫 Biomembranas y transporte <span class="badge">Unidad 4</span></div>
 
-    <p>Las biomembranas son estructuras <strong>dinámicas y asimétricas</strong> formadas por una bicapa lipídica con proteínas integradas y periféricas. El modelo vigente es el <strong>Modelo del Mosaico Fluido</strong> (Singer y Nicolson, 1972).</p>
+    <p>Las biomembranas son estructuras <strong>dinámicas y asimétricas</strong> formadas por una bicapa lipídica con proteínas integradas y periféricas. El modelo vigente es el <strong>Modelo del Mosaico Fluido</strong> (Singer y Nicolson, 1972). Son selectivamente permeables: moléculas pequeñas no polares (O₂, CO₂) las atraviesan libremente, mientras que iones y moléculas grandes requieren proteínas de transporte.</p>
 
     <div class="def-box">
       <strong>Modelo del Mosaico Fluido</strong>
-      <p>La membrana es una bicapa lipídica fluida en la que las proteínas están embebidas de manera dinámica. Los lípidos y proteínas pueden desplazarse lateralmente. La asimetría se mantiene gracias a la distribución diferencial de lípidos y glicoproteínas.</p>
+      <p>La membrana es una <strong>bicapa lipídica fluida</strong> en la que las proteínas están embebidas de manera dinámica. Los lípidos y proteínas pueden desplazarse <strong>lateralmente</strong> con gran libertad (movimiento lateral rápido), pero el movimiento transversal ("flip-flop") de un lado al otro es muy lento y catalizado por enzimas (flipasas). La <strong>asimetría</strong> se mantiene gracias a la distribución diferencial de lípidos (fosfatidilserina en la cara interna; fosfatidilcolina en la externa) y glicoproteínas y glicolípidos solo en la cara extracelular. La fluidez depende de la temperatura y la composición lipídica.</p>
     </div>
 
     <div class="subsection-title">Composición de la membrana</div>
     <div class="cards">
-      <div class="card"><h4>Fosfolípidos</h4><p>Bicapa que forma la estructura base. Las colas hidrofóbicas se orientan al interior y las cabezas polares al exterior.</p></div>
-      <div class="card"><h4>Colesterol</h4><p>Regula la fluidez: a bajas temperaturas evita la solidificación; a altas temperaturas, evita el exceso de fluidez.</p></div>
-      <div class="card"><h4>Proteínas integrales</h4><p>Atraviesan la bicapa total o parcialmente. Actúan como canales, transportadores, receptores o enzimas.</p></div>
-      <div class="card"><h4>Proteínas periféricas</h4><p>Asociadas a la superficie interna o externa. Participan en señalización y anclaje al citoesqueleto.</p></div>
-      <div class="card"><h4>Glicoproteínas/Glicolípidos</h4><p>Solo en la cara extracelular. Forman el glucocáliz: reconocimiento celular, adhesión y protección.</p></div>
+      <div class="card"><h4>Fosfolípidos</h4><p>Forman la <strong>bicapa fundamental</strong>: las colas hidrofóbicas de ácidos grasos se orientan al interior (huyendo del agua) y las cabezas polares al exterior e interior acuoso. La naturaleza de los ácidos grasos determina la fluidez: los <strong>insaturados</strong> (con dobles ligaduras que crean "codos") aumentan la fluidez; los <strong>saturados</strong> permiten mayor empaquetamiento y rigidez. En bacterias hay un solo tipo de membrana; en eucariontes hay membranas con composiciones distintas en cada organela.</p></div>
+      <div class="card"><h4>Colesterol</h4><p>Presente en membranas animales (no en bacterias ni plantas). Actúa como <strong>tampón de fluidez</strong>: a bajas temperaturas se intercala entre los fosfolípidos impidiendo la cristalización (solidificación); a altas temperaturas restringe el movimiento excesivo. En cantidades elevadas puede formar <strong>balsas lipídicas</strong> (lipid rafts) con esfingolípidos, que sirven de plataformas para receptores y proteínas de señalización.</p></div>
+      <div class="card"><h4>Proteínas integrales (transmembrana)</h4><p>Atraviesan la bicapa total (con segmentos hidrofóbicos en α-hélice) o parcialmente. Representan el ~50% de la masa de la membrana. Funciones: <strong>canales iónicos</strong> (permiten el paso selectivo de iones), <strong>transportadores</strong> (GLUT, bomba Na⁺/K⁺), <strong>receptores</strong> (para hormonas, neurotransmisores, factores de crecimiento), <strong>enzimas</strong> (adenilato ciclasa) y <strong>proteínas de anclaje</strong> (integrinas que conectan con la matriz extracelular).</p></div>
+      <div class="card"><h4>Proteínas periféricas</h4><p>Asociadas de manera no covalente a la superficie interna o externa de la membrana, sin penetrar la bicapa lipídica. Se disocian con tratamientos suaves (soluciones salinas). Participan en <strong>señalización intracelular</strong> (proteínas G, quinasas), <strong>anclaje al citoesqueleto</strong> (espectrina en glóbulos rojos) y <strong>regulación enzimática</strong> en la superficie de la membrana.</p></div>
+      <div class="card"><h4>Glicoproteínas / Glicolípidos</h4><p>Solo presentes en la cara <strong>extracelular</strong> (cara externa). Los carbohidratos unidos forman el <strong>glucocáliz</strong> (glicocálix), una cubierta de azúcares que protege mecánicamente la célula, interviene en el <strong>reconocimiento celular</strong> (grupos sanguíneos ABO, reconocimiento entre células del sistema inmune), en la <strong>adhesión celular</strong> y en la recepción de señales. El glicocáliz también puede actuar como lubricante y barrera contra patógenos.</p></div>
     </div>
   </div>
 
@@ -961,23 +970,27 @@ graph TD
   <div id="diferenciaciones" class="section">
     <div class="section-title">🔗 Diferenciaciones de membrana <span class="badge">PDF</span></div>
 
-    <p>Son regiones especializadas de la membrana plasmática adaptadas a funciones específicas como absorción, secreción, adhesión mecánica e interacción entre células adyacentes.</p>
+    <p>Son regiones especializadas de la membrana plasmática adaptadas a funciones específicas como absorción, secreción, adhesión mecánica e interacción entre células adyacentes. Se forman durante el desarrollo y diferencian distintos dominios funcionales en la célula (polaridad celular: cara apical vs. basolateral en células epiteliales).</p>
 
     <div class="def-box">
       <strong>Uniones estrechas u oclusivas (Tight junctions)</strong>
-      <p>Sellan el espacio paracelular entre células vecinas. Impiden el pasaje de sustancias entre células epiteliales. Se ubican por debajo del borde apical. Fundamentales en epitelios de barrera (intestino, vesícula biliar, riñón).</p>
+      <p>Sellan el espacio paracelular entre células epiteliales vecinas mediante proteínas transmembrana (<strong>ocludinas y claudinas</strong>) que se entrecruzan como un cierre de cremallera. Impiden el pasaje libre de sustancias <strong>entre</strong> células (vía paracelular), obligando a que todo lo que pase lo haga <strong>a través</strong> de las células (vía transcelular) y sea regulado. Se ubican en el borde apical. Son fundamentales en epitelios de barrera: intestino (controla absorción), riñón (controla reabsorción), barrera hematoencefálica (protege el cerebro), vesícula biliar. Su permeabilidad puede regularse fisiológicamente.</p>
     </div>
     <div class="def-box">
-      <strong>Desmosomas</strong>
-      <p>Complejos proteicos que anclan células adyacentes a través de filamentos intermedios (citoqueratina). Aportan resistencia mecánica a tejidos sometidos a tensión como la piel y el corazón.</p>
+      <strong>Desmosomas (máculas adherentes)</strong>
+      <p>Complejos proteicos de adhesión fuerte que anclan células adyacentes a través de <strong>filamentos intermedios de citoqueratina</strong>. Las proteínas transmembrana <strong>desmogleínas y desmocolinas</strong> (cadherinas desmosomales) unen placas densas intracelulares (desmoplaquina, placofílina) que conectan con la red de citoqueratina. Aportan <strong>resistencia mecánica</strong> a tejidos sometidos a tensión y estiramiento: piel (epidermis), corazón (discos intercalares), mucosa oral. En enfermedades autoinmunes como el pénfigo vulgar, los anticuerpos atacan las desmogleínas causando separación de las células epidérmicas y ampollas.</p>
     </div>
     <div class="def-box">
       <strong>Uniones comunicantes (Gap junctions)</strong>
-      <p>Canales proteicos (conexinas/conexones) que comunican directamente los citoplasmas de células adyacentes. Permiten el paso de iones y pequeñas moléculas. Esenciales para la coordinación eléctrica en músculo cardíaco.</p>
+      <p>Canales proteicos formados por <strong>conexinas</strong> (en vertebrados) que se ensamblan en hexámeros llamados <strong>conexones</strong>. Dos conexones de células adyacentes se alinean formando un canal hidrofílico que comunica directamente los citoplasmas. Permiten el paso de iones (Ca²⁺, K⁺), segundos mensajeros (AMPc, IP₃) y moléculas pequeñas (<1,2 kDa). Son esenciales para la <strong>coordinación eléctrica</strong> en músculo cardíaco (sincroniza las contracciones) y músculo liso. También participan en el desarrollo embrionario (señales morfogenéticas) y en la respuesta inmune local. Los canales se abren y cierran regulando el acoplamiento metabólico entre células.</p>
     </div>
     <div class="def-box">
       <strong>Microvellosidades</strong>
-      <p>Prolongaciones digitiformes de la membrana apical. Aumentan la superficie de absorción (borde en cepillo del intestino). Contienen un núcleo de filamentos de actina.</p>
+      <p>Prolongaciones digitiformes (dedo-like) de la membrana apical, de ~1 µm de largo y ~0,1 µm de diámetro. En intestino delgado forman el <strong>borde en cepillo</strong> (brush border) que multiplica la superficie de absorción hasta ~600 veces respecto a una superficie lisa. Contienen un núcleo de ~20–30 filamentos de actina cruzados por fimbrina y villina, anclados en la red terminal de actina. Las células del borde en cepillo tienen también <strong>enzimas digestivas</strong> (disacaridasas como lactasa y sacarasa, peptidasas) inmovilizadas en su membrana. También se encuentran en células del túbulo proximal renal (reabsorción).</p>
+    </div>
+    <div class="def-box">
+      <strong>Uniones adherentes (Zonula adherens)</strong>
+      <p>Forman un cinturón adhesivo debajo de las uniones estrechas. Utilizan <strong>E-cadherinas</strong> (proteínas Ca²⁺-dependientes) que conectan interioramente con filamentos de <strong>actina</strong> a través de cateninas (α, β, γ). Estabilizan la cohesión entre células epiteliales y participan en la señalización del desarrollo. La pérdida de E-cadherina se asocia con la progresión tumoral y la transición epitelio-mesenquimal en metástasis.</p>
     </div>
 
     <div class="mermaid-wrap">
@@ -1006,28 +1019,29 @@ graph LR
   <div id="citoplasma" class="section">
     <div class="section-title">💧 Citoplasma <span class="badge">PDF</span></div>
 
-    <p>El citoplasma es la región celular comprendida entre la membrana plasmática y la envoltura nuclear. Está compuesto por el <strong>citosol</strong>, el <strong>citoesqueleto</strong> y las organelas.</p>
+    <p>El citoplasma es la región celular comprendida entre la membrana plasmática y la envoltura nuclear. Está compuesto por el <strong>citosol</strong>, el <strong>citoesqueleto</strong> y las organelas. Representa el principal compartimiento acuoso de la célula y es el escenario de gran parte del metabolismo celular.</p>
 
     <div class="def-box">
       <strong>Citosol</strong>
-      <p>Compartimiento fluido más grande de la célula. Constituye más de la mitad del volumen celular. Se comporta como un gel acuoso rico en iones, aminoácidos, proteínas, glucidos y nucleótidos. Es el sitio donde ocurre la mayor parte del metabolismo: glucólisis, síntesis de proteínas citoplasmáticas, etc.</p>
+      <p>Compartimiento fluido más grande de la célula (más del 50% del volumen celular). Es una solución acuosa altamente concentrada de iones (K⁺, Mg²⁺, Ca²⁺ en concentraciones nanomolares), aminoácidos, nucleótidos, cofactores, ARNs y cientos de enzimas. Se comporta como un <strong>gel coloidal</strong> (entre líquido y sólido) debido a la alta concentración proteica (macromolecular crowding). Es el sitio donde ocurren procesos clave: <strong>glucólisis</strong> (degradación de glucosa a piruvato), <strong>síntesis de ácidos grasos</strong> (de novo), síntesis de aminoácidos y nucleótidos, y parte de la síntesis proteica (ribosomas libres). El pH del citosol se mantiene en ~7,2.</p>
     </div>
 
     <div class="subsection-title">Citoesqueleto</div>
+    <p>Red dinámica de filamentos proteicos que da forma a la célula, ancla las organelas, permite el movimiento celular y el transporte intracelular. Sus componentes se polimerizan y despolimerizan constantemente según las necesidades celulares.</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Componente</th><th>Diámetro</th><th>Proteínas</th><th>Función principal</th></tr></thead>
+        <thead><tr><th>Componente</th><th>Diámetro</th><th>Proteínas</th><th>Función principal</th><th>Inhibidores/Fármacos relacionados</th></tr></thead>
         <tbody>
-          <tr><td><strong>Microfilamentos de actina</strong></td><td>~7 nm</td><td>Actina globular (G-actina)</td><td>Movimiento celular, contracción, microvellosidades, división</td></tr>
-          <tr><td><strong>Filamentos intermedios</strong></td><td>~10 nm</td><td>Citoqueratina, vimentina, láminas</td><td>Soporte estructural, anclaje de organelas y núcleo</td></tr>
-          <tr><td><strong>Microtúbulos</strong></td><td>~25 nm</td><td>α y β-tubulina</td><td>Transporte intracelular, huso mitótico, cilios y flagelos</td></tr>
+          <tr><td><strong>Microfilamentos de actina</strong></td><td>~7 nm</td><td>Actina globular (G-actina) → actina filamentosa (F-actina)</td><td>Movimiento celular (lamelipodios, filopodios), contracción muscular (con miosina), citocinesis (anillo contráctil), microvellosidades, endocitosis y exocitosis</td><td>Citocalasina D (despolimeriza actina); jasplakinolida (estabiliza actina)</td></tr>
+          <tr><td><strong>Filamentos intermedios</strong></td><td>~10 nm</td><td>Citoqueratinas (epitelio), vimentina (mesénquima), desmina (músculo), láminas A/B/C (núcleo)</td><td>Soporte estructural resistente a tensión, anclaje de organelas y núcleo, resistencia mecánica en desmosomas, soporte de la envoltura nuclear</td><td>No hay inhibidores farmacológicos específicos; su estabilidad es mayor que la de los otros filamentos</td></tr>
+          <tr><td><strong>Microtúbulos</strong></td><td>~25 nm</td><td>α y β-tubulina (heterodímeros) que polimerizan con GTP</td><td>Transporte intracelular vesicular (motores moleculares: kinesina → anterógrado; dineína → retrógrado), huso acromático mitótico y meiótico, estructura de cilios y flagelos (axonema 9+2), organización del centrosoma</td><td>Colchicina y vincristina (despolimerizan microtúbulos); taxol/paclitaxel (estabiliza, anti-tumoral)</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="def-box">
       <strong>Ribosomas</strong>
-      <p>Complejos ribonucleoproteicos responsables de la síntesis de proteínas (traducción). Formados por dos subunidades: mayor y menor. En eucariontes: 80S (60S + 40S). Pueden ser libres en el citosol o asociados al RE rugoso.</p>
+      <p>Complejos ribonucleoproteicos (ARNr + proteínas ribosomales) responsables de la síntesis de proteínas (<strong>traducción</strong>). Son la "fábrica de proteínas" universal: presentes en todas las células vivas. Formados por dos subunidades: <strong>mayor</strong> (cataliza la formación del enlace peptídico — función ribozima del ARNr 23S/28S) y <strong>menor</strong> (decodifica el ARNm). En <strong>eucariontes</strong>: ribosomas 80S (subunidad 60S + 40S); en <strong>procariontes y en mitocondrias/cloroplastos</strong>: 70S (50S + 30S). La diferencia en tamaño es el blanco de muchos antibióticos (eritromicina, estreptomicina, tetraciclina actúan sobre ribosomas 70S sin afectar los 80S eucarióticos). Los ribosomas pueden ser <strong>libres en el citosol</strong> (sintetizan proteínas citoplasmáticas, nucleares y mitocondriales) o <strong>asociados al RE rugoso</strong> (sintetizan proteínas destinadas a secreción, membrana o lisosomas). Un solo ARNm puede ser traducido simultáneamente por varios ribosomas formando un <strong>polirribosoma (polisoma)</strong>.</p>
     </div>
 
     <div class="mermaid-wrap">
@@ -1061,23 +1075,23 @@ graph TD
   <div id="endomembranas" class="section">
     <div class="section-title">🏭 Sistema de endomembranas <span class="badge">PDF</span></div>
 
-    <p>El sistema de endomembranas integra un conjunto de compartimientos membranosos interconectados funcionalmente que participan en la síntesis, modificación, empaquetamiento y transporte de proteínas y lípidos.</p>
+    <p>El sistema de endomembranas integra un conjunto de compartimientos membranosos interconectados funcionalmente que participan en la <strong>síntesis, modificación, empaquetamiento y transporte</strong> de proteínas y lípidos. Incluye la envoltura nuclear, el retículo endoplasmático (rugoso y liso), el aparato de Golgi, los lisosomas y las vesículas de transporte. El flujo de material entre estos compartimientos se realiza mediante <strong>vesículas de transporte</strong> que brotan de un compartimiento (gemación) y se fusionan con el siguiente. Las proteínas de revestimiento (COPI, COPII, clatrina) dirigen las vesículas a sus destinos correctos.</p>
 
     <div class="def-box">
       <strong>Envoltura nuclear</strong>
-      <p>Formada por dos membranas (interna y externa) que delimitan el espacio perinuclear. Se continúa con el RE rugoso. Posee poros nucleares que regulan el tráfico bidireccional de macromoléculas (ARN, proteínas ribosomales).</p>
+      <p>Formada por dos membranas (interna y externa) que delimitan el <strong>espacio perinuclear</strong> (~20–50 nm). La membrana externa se continúa con el RE rugoso y tiene ribosomas. Posee <strong>poros nucleares</strong> (~120 MDa, ~3.000 poros por núcleo) que son canales complejos formados por ~30 proteínas diferentes (nucleoporinas). Regulan el tráfico <strong>bidireccional</strong>: exportan ARNm, ARNr y ARNt hacia el citoplasma; importan proteínas ribosomales, factores de transcripción y señales hacia el núcleo. Las proteínas con una <strong>señal de localización nuclear (NLS)</strong> son reconocidas por importinas y transportadas activamente. La envoltura nuclear se desintegra durante la mitosis (en eucariontes de mitosis abierta) y se reconstituye al finalizar.</p>
     </div>
     <div class="def-box">
       <strong>Retículo endoplasmático rugoso (RER)</strong>
-      <p>Red de sacos aplanados (cisternas) con ribosomas en su cara citosólica. Sitio de síntesis de proteínas destinadas a la membrana, secreción o lisosomas. Las proteínas se translocan al lumen del RER durante su síntesis para ser procesadas (glicosilación, plegamiento).</p>
+      <p>Red de sacos aplanados (<strong>cisternas</strong>) con ribosomas adheridos en su cara citosólica. Es el sitio de síntesis de proteínas destinadas a: <strong>secreción</strong> (anticuerpos, enzimas digestivas, hormonas peptídicas), <strong>membrana plasmática</strong> (receptores, canales, transportadores), <strong>lisosomas</strong> (hidrolasas ácidas) y <strong>organelas del sistema de endomembranas</strong>. Las proteínas se translocan co-traduccionalmente al lumen del RER a través del <strong>translocón</strong> (canal Sec61). En el lumen ocurren: N-glicosilación inicial (adición de oligosacáridos ricos en manosa), plegamiento con la ayuda de chaperonas (BiP/GRP78), formación de puentes disulfuro (proteínas PDI) y control de calidad (las mal plegadas se retrotranslocan al citosol para degradación — ERAD).</p>
     </div>
     <div class="def-box">
       <strong>Retículo endoplasmático liso (REL)</strong>
-      <p>Carece de ribosomas. Funciones: síntesis de lípidos y fosfolípidos de membrana, metabolismo del glucógeno, detoxificación de fármacos y venenos (citocromo P450), almacenamiento de Ca²⁺ (músculo estriado).</p>
+      <p>Carece de ribosomas. Funciones principales: (1) <strong>síntesis de lípidos</strong>: fosfolípidos de membrana, triglicéridos, colesterol y esfingolípidos; (2) <strong>metabolismo del glucógeno</strong>: en hígado, la glucosa-6-fosfatasa del REL libera glucosa a la sangre; (3) <strong>detoxificación</strong>: el sistema del citocromo P450 en hepatocitos oxida y neutraliza fármacos, alcohol, venenos y compuestos hidrofóbicos; (4) <strong>almacenamiento de Ca²⁺</strong>: en músculo estriado, el REL es el retículo sarcoplásmico que libera Ca²⁺ para desencadenar la contracción muscular. Muy desarrollado en hepatocitos y células de la corteza suprarrenal (sintetizan esteroides).</p>
     </div>
     <div class="def-box">
       <strong>Aparato de Golgi</strong>
-      <p>Conjunto de cisternas aplanadas apiladas. Recibe vesículas desde el RER (cara cis), modifica y clasifica las proteínas (N-glicosilación, proteolisis) y las envía a su destino final en vesículas que brotan de la cara trans: lisosomas, membrana plasmática o secreción.</p>
+      <p>Conjunto de cisternas aplanadas apiladas (5–8 cisternas en animales, hasta 30 en plantas), organizadas en tres regiones con funciones progresivas: <strong>cara cis</strong> (recibe vesículas COPII del RER), <strong>cisternas mediales</strong> (modificaciones enzimáticas) y <strong>cara trans</strong> (clasifica y empaqueta el producto final en vesículas). En el Golgi ocurren: (1) <strong>trimmingde azúcares</strong>: se eliminan residuos de manosa del núcleo oligosacarídico inicial; (2) <strong>N-glicosilación compleja</strong>: se añaden nuevos azúcares (GlcNAc, galactosa, fucosa, ácido siálico) en las cisternas mediales y trans; (3) <strong>O-glicosilación</strong>: adición de azúcares a residuos de serina/treonina; (4) <strong>proteolisis</strong>: algunas proteínas se procesan por cortes proteolíticos (ej.: insulina a partir de proinsulina). La cara trans produce tres tipos de vesículas: vesículas con clatrina → lisosomas; vesículas de secreción regulada → exocitosis; vesículas para la membrana plasmática → exocitosis constitutiva.</p>
     </div>
 
     <div class="mermaid-wrap">
@@ -1109,19 +1123,19 @@ graph LR
 
     <div class="def-box">
       <strong>Lisosoma primario</strong>
-      <p>Vesícula que brota del aparato de Golgi. Contiene hidrolasas ácidas (proteasas, lipasas, nucleasas, glicosidases) activas a pH ~5. Estas enzimas se sintetizan en el RER y se glicosilaron con manosa-6-fosfato, señal de direccionamiento al lisosoma.</p>
+      <p>Vesícula esférica (~0,1–1 µm) que brota del aparato de Golgi. Contiene ~50 tipos de <strong>hidrolasas ácidas</strong> (proteasas, lipasas, nucleasas, glicosidases, sulfatasas) activas a pH ~5 (la membrana lisosómica tiene bombas de H⁺ que acidifican el lumen). Este pH ácido protege al resto de la célula: si las enzimas escaparan al citosol (pH 7,2), quedarían inactivas. Las enzimas lisosomales se sintetizan en el RER y son marcadas con <strong>manosa-6-fosfato (M6P)</strong> en el Golgi; los receptores de M6P en la cara trans del Golgi capturan estas proteínas y las dirigen en vesículas hacia los endosomas tardíos (que se convertirán en lisosomas). Las enfermedades de almacenamiento lisosómico (ej.: enfermedad de Gaucher, Tay-Sachs) ocurren cuando falta una hidrolasa específica.</p>
     </div>
     <div class="def-box">
       <strong>Lisosoma secundario (fagolisosoma / autofagolisosoma)</strong>
-      <p>Resulta de la fusión del lisosoma primario con un fagosoma (material externo) o autofagosoma (material citoplasmático propio). Degradan el contenido hasta monómeros reciclables.</p>
+      <p>Resulta de la fusión del lisosoma primario con: (1) un <strong>fagosoma</strong> → contiene material extracelular (bacterias, partículas, células apoptóticas) incorporado por fagocitosis; el resultado es un <strong>fagolisosoma</strong> donde las enzimas degradan el contenido; (2) un <strong>autofagosoma</strong> (doble membrana que rodea organelas dañadas u obsoletas del propio citoplasma) → genera un <strong>autofagolisosoma</strong>. Los monómeros resultantes (aminoácidos, azúcares, ácidos grasos, nucleótidos) son <strong>reciclados</strong> al citosol y reutilizados.</p>
     </div>
     <div class="def-box">
       <strong>Autofagia</strong>
-      <p>Proceso por el cual la célula degrada sus propias organelas dañadas u obsoletas. El material a degradar es rodeado por una membrana formando el autofagosoma, que luego se fusiona con el lisosoma.</p>
+      <p>Proceso celular de "auto-digestión" controlada por el que la célula degrada componentes propios dañados, obsoletos o en exceso. Existen tres formas: (1) <strong>macroautofagia</strong> (la más común): una membrana de aislamiento forma el autofagosoma que engloba citoplasma/organelas y se fusiona con el lisosoma; (2) <strong>microautofagia</strong>: el lisosoma invagina su propia membrana para ingerir pequeñas porciones de citosol; (3) <strong>autofagia mediada por chaperonas</strong> (CMA): proteínas con la secuencia KFERQ son reconocidas por HSC70 y translocadas directamente al lumen lisosómico. La autofagia es esencial en el <strong>ayuno</strong> (proporciona nutrientes), en el <strong>control de calidad</strong> de organelas (mitofagia elimina mitocondrias dañadas) y en la respuesta inmune. Su disfunción se asocia con enfermedades neurodegenerativas (Parkinson, Alzheimer), cáncer y envejecimiento. Premio Nobel 2016 otorgado a Yoshinori Ohsumi por su descubrimiento.</p>
     </div>
     <div class="def-box">
       <strong>Peroxisoma</strong>
-      <p>Organela delimitada por una sola membrana. Contiene oxidasas y catalasa. Realiza la β-oxidación de ácidos grasos de cadena muy larga y neutraliza el H₂O₂ generado (2H₂O₂ → 2H₂O + O₂). Participa en la síntesis de plasmalógenos y sales biliares.</p>
+      <p>Organela delimitada por una sola membrana (~0,1–1 µm). Contiene más de 50 enzimas oxidativas. Funciones principales: (1) <strong>β-oxidación de ácidos grasos de cadena muy larga</strong> (>22 carbonos), que luego completan su oxidación en la mitocondria; (2) <strong>detoxificación del H₂O₂</strong>: las oxidasas producen peróxido de hidrógeno (tóxico) que la catalasa descompone rápidamente (2H₂O₂ → 2H₂O + O₂), de ahí el nombre "peroxisoma"; (3) <strong>síntesis de plasmalógenos</strong> (fosfolípidos importantes en la mielina del sistema nervioso); (4) <strong>síntesis de ácido biliar</strong> en el hígado; (5) <strong>metabolismo del glifoxilato</strong>. A diferencia de los lisosomas, los peroxisomas se originan principalmente por <strong>fisión de peroxisomas preexistentes</strong> (no del sistema de endomembranas), aunque las membranas lipídicas pueden aportarse desde el RE. Las enfermedades peroxisomales (síndrome de Zellweger) causan graves alteraciones neurológicas.</p>
     </div>
 
     <div class="table-wrap">
@@ -1146,39 +1160,40 @@ graph LR
     <div class="section-title">🎯 Núcleo, mitocondrias y plastos <span class="badge">PDF</span></div>
 
     <div class="subsection-title">Núcleo</div>
-    <p>Presente solo en células eucariontes. Delimitado por la envoltura nuclear (doble membrana). Contiene la cromatina (ADN + proteínas histonas) y el nucleoplasma.</p>
+    <p>Presente solo en células eucariontes. Es el <strong>centro de control</strong> de la célula: contiene el ADN y dirige la expresión génica. Delimitado por la envoltura nuclear (doble membrana). Contiene la cromatina (ADN + proteínas histonas) organizada en cromosomas y el nucleoplasma.</p>
     <div class="cards">
-      <div class="card"><h4>Envoltura nuclear</h4><p>Doble membrana continua con el RER. Posee poros nucleares que regulan el tráfico de ARN y proteínas.</p></div>
-      <div class="card"><h4>Lámina nuclear</h4><p>Red de filamentos intermedios (laminas A, B, C) que soporta la envoltura y organiza la cromatina periférica.</p></div>
-      <div class="card"><h4>Nucléolo</h4><p>Región no delimitada por membrana. Sitio de síntesis y ensamblaje de subunidades ribosomales (ARNr + proteínas).</p></div>
-      <div class="card"><h4>Cromatina</h4><p>ADN enrollado alrededor de histonas. Eucromatina (activa, descondensada) y heterocromatina (inactiva, condensada).</p></div>
+      <div class="card"><h4>Envoltura nuclear</h4><p>Doble membrana continua con el RER (la membrana externa tiene ribosomas y se conecta al retículo). Posee <strong>poros nucleares</strong> (~120 MDa cada uno) que regulan el tráfico bidireccional: salen ARNm, ARNr, ARNt y ribosomas ensamblados hacia el citoplasma; entran proteínas con señal NLS (histonas, polimerasas, factores de transcripción, importinas). Durante la mitosis en eucariontes superiores, la envoltura se desintegra (mitosis "abierta") y se reconstituye al final gracias a las láminas nucleares.</p></div>
+      <div class="card"><h4>Lámina nuclear</h4><p>Red de filamentos intermedios (láminas A, B y C — tipo IV de filamentos intermedios) ubicada en la cara interna de la membrana nuclear. Da soporte estructural a la envoltura nuclear e interactúa con la cromatina periférica, contribuyendo a su organización. Las mutaciones en las láminas causan <strong>laminopatías</strong> (ej.: progeria de Hutchinson-Gilford, distrofias musculares emery-dreifuss). Las láminas B permanecen asociadas a las membranas; las láminas A/C se despolimerizan durante la mitosis por fosforilación.</p></div>
+      <div class="card"><h4>Nucléolo</h4><p>Región densa, esférica y <strong>no delimitada por membrana</strong> dentro del núcleo. Se forma alrededor de los genes del ARNr (loci organizadores nucleolares, NOR) en los cromosomas. Tiene 3 regiones: centro fibrilar, componente fibrilar denso y componente granular. Función principal: síntesis del <strong>ARN ribosómico</strong> (ARNr 18S, 5,8S y 28S en eucariontes) por la ARN polimerasa I, seguida de su procesamiento y ensamblaje con proteínas ribosomales (importadas del citoplasma) para formar las subunidades ribosomales que luego se exportan al citoplasma. El nucléolo desaparece durante la mitosis y reaparece en G1.</p></div>
+      <div class="card"><h4>Cromatina</h4><p>Complejo de ADN + proteínas histonas (H1, H2A, H2B, H3, H4) + proteínas no histonas. La unidad básica es el <strong>nucleosoma</strong>: ~147 pb de ADN enrolladas alrededor de un octámero de histonas (2× H2A, H2B, H3, H4). Se distinguen: <strong>eucromatina</strong> (descondensada, transcripcionalmente activa, rica en genes) y <strong>heterocromatina</strong> (condensada, inactiva, repetitiva — ej.: centrómeros, telómeros). Las modificaciones post-traduccionales de histonas (acetilación, metilación, fosforilación) constituyen el <strong>código de histonas</strong> que regula la expresión génica (epigenética). Durante la mitosis, la cromatina se condensa al máximo formando los cromosomas visibles.</p></div>
     </div>
 
     <div class="subsection-title">Mitocondria</div>
     <div class="def-box">
       <strong>Mitocondria — «la central energética»</strong>
-      <p>Organela de doble membrana. La membrana interna forma invaginaciones llamadas <em>crestas mitocondriales</em> que aumentan la superficie disponible para la cadena de transporte de electrones. Contiene ADN propio circular (ADNmt) y ribosomas 70S. Realiza la respiración celular aeróbica: ciclo de Krebs + cadena respiratoria → ATP.</p>
+      <p>Organela de <strong>doble membrana</strong> presente en casi todas las células eucariontes (excepto glóbulos rojos maduros). La <strong>membrana externa</strong> es permeable a moléculas pequeñas (porinas) y envuelve toda la organela. La <strong>membrana interna</strong> es impermeable a iones (permite mantener el gradiente electroquímico) y forma extensas invaginaciones llamadas <strong>crestas mitocondriales</strong> que aumentan enormemente la superficie disponible para la cadena de transporte de electrones (ATP sintasas, complejos I-IV). El espacio entre ambas membranas es el <strong>espacio intermembrana</strong>. La región interna es la <strong>matriz mitocondrial</strong>, que contiene: ADN mitocondrial circular propio (ADNmt, heredado por vía materna), ribosomas 70S, enzimas del <strong>ciclo de Krebs</strong> y de la β-oxidación. La respiración aeróbica produce hasta ~30–32 ATP por molécula de glucosa: glucólisis (citosol) → acetil-CoA → ciclo de Krebs → cadena respiratoria + fosforilación oxidativa. También regulan la apoptosis (liberan citocromo c), el Ca²⁺ intracelular y la termogénesis (tejido adiposo marrón).</p>
     </div>
 
     <div class="subsection-title">Plastos (exclusivos de plantas y algas)</div>
+    <p>Los plastos son organelas de doble membrana exclusivas de plantas y algas. Al igual que las mitocondrias, poseen ADN circular propio y ribosomas 70S, evidencias de su origen endosimbiótico. Todos los plastos derivan de <strong>proplastos</strong> (plastos inmaduros en tejidos meristemáticos) y pueden interconvertirse entre sí según las condiciones.</p>
     <div class="cards">
       <div class="card">
         <h4>🌿 Cloroplasto</h4>
-        <p>Doble membrana + sistema de tilacoides (grana). Contiene clorofila. Realiza la fotosíntesis: fijación de CO₂ → glucosa. Posee ADN y ribosomas 70S propios.</p>
+        <p>Doble membrana + sistema interno de <strong>tilacoides</strong> (sacos membranosos apilados formando <strong>grana</strong>, interconectados por lamelas del estroma). La membrana tilacoidal contiene los complejos fotosintéticos (fotosistema I y II, complejo citb6f, ATP sintasa, plastocianina). Las <strong>reacciones luminosas</strong> ocurren en los tilacoides: captura de luz → separación del agua → liberación de O₂ → síntesis de ATP y NADPH. Las <strong>reacciones oscuras</strong> (ciclo de Calvin) ocurren en el <strong>estroma</strong>: fijación de CO₂ mediante la enzima RuBisCO → glucosa. Posee ADN circular (~120–160 kb) y ribosomas 70S. Se replican por fisión binaria.</p>
       </div>
       <div class="card">
         <h4>🟡 Cromoplasto</h4>
-        <p>Contiene pigmentos carotenoides (amarillos, naranjas, rojos). Confiere color a flores y frutos para atraer polinizadores y dispersores.</p>
+        <p>Contiene pigmentos <strong>carotenoides</strong> (β-caroteno → naranja, licopeno → rojo, xantofilas → amarillo) almacenados en estructuras lipídicas (plastoglóbulos, cristales). Confieren color a flores (para atraer polinizadores) y frutos maduros (para atraer dispersores de semillas). Pueden derivar de cloroplastos (maduración del fruto: tomates verdes → rojos) o directamente de proplastos. Los carotenoides también actúan como antioxidantes y precursores de vitamina A.</p>
       </div>
       <div class="card">
         <h4>⚪ Amiloplasto</h4>
-        <p>Almacena almidón en órganos de reserva como raíces y tubérculos.</p>
+        <p>Plastos especializados en sintetizar y almacenar <strong>almidón</strong> en forma de gránulos. Abundantes en órganos de reserva: tubérculos (papa), raíces (mandioca), semillas (trigo, maíz, arroz). En la raíz también actúan como <strong>estatocistos</strong> (gravisensores): los amiloplastos pesados sedimentan en respuesta a la gravedad, orientando el crecimiento radicular hacia abajo (gravitropismo). Pueden desdiferenciarse de cloroplastos en tejidos no fotosintéticos o de proplastos directamente.</p>
       </div>
     </div>
 
     <div class="def-box">
-      <strong>Teoría endosimbiótica (Lynn Margulis)</strong>
-      <p>Mitocondrias y cloroplastos son descendientes de bacterias que fueron fagocitadas por células ancestrales y establecieron una relación simbiótica. Evidencias: doble membrana, ADN circular propio, ribosomas 70S, división por fisión binaria.</p>
+      <strong>Teoría endosimbiótica (Lynn Margulis, 1967)</strong>
+      <p>Propone que mitocondrias y cloroplastos son descendientes de <strong>bacterias de vida libre</strong> que fueron engullidas (fagocitadas) por células ancestrales eucariontes primitivas y establecieron una relación de simbiosis mutualista permanente. La bacteria endosimbiótica ancestral de las mitocondrias fue una <strong>α-proteobacteria</strong> aeróbica (similar a <em>Rickettsia</em>); la de los cloroplastos fue una <strong>cianobacteria</strong> fotosintética. Evidencias que sostienen la teoría: (1) <strong>doble membrana</strong> (la externa deriva de la membrana fagocítica del hospedador); (2) <strong>ADN circular propio</strong>, sin histonas (procarionte-like); (3) <strong>ribosomas 70S</strong> sensibles a antibióticos que inhiben ribosomas bacterianos; (4) <strong>división por fisión binaria</strong>, independiente del ciclo celular del hospedador; (5) tamaño similar a bacterias; (6) análisis filogenéticos moleculares.</p>
     </div>
 
     <div class="mermaid-wrap">
@@ -1210,33 +1225,33 @@ graph TD
   <div id="transporte" class="section">
     <div class="section-title">🚚 Mecanismos de transporte <span class="badge">PPTX</span></div>
 
-    <p>Las membranas biológicas son selectivamente permeables. Las sustancias las atraviesan por diferentes mecanismos según su tamaño, polaridad y gradiente de concentración.</p>
+    <p>Las membranas biológicas son <strong>selectivamente permeables</strong>. Las sustancias las atraviesan por diferentes mecanismos según su tamaño, polaridad, carga y gradiente de concentración. La permeabilidad intrínseca de la bicapa lipídica solo permite el paso libre de moléculas pequeñas y no polares; todo lo demás requiere proteínas de transporte o mecanismos vesiculares.</p>
 
-    <div class="subsection-title">Transporte pasivo (sin gasto de ATP)</div>
+    <div class="subsection-title">Transporte pasivo (sin gasto de ATP — a favor del gradiente)</div>
     <div class="cards">
       <div class="card">
         <h4>Difusión simple</h4>
-        <p>Moléculas pequeñas no polares (O₂, CO₂, N₂) o muy pequeñas (H₂O) atraviesan la bicapa lipídica a favor de gradiente de concentración.</p>
+        <p>Moléculas pequeñas <strong>no polares</strong> (O₂, CO₂, N₂, etanol, hormonas esteroides) o muy pequeñas (H₂O en parte) atraviesan directamente la bicapa lipídica a favor de su gradiente de concentración (de mayor a menor concentración). No requiere proteínas ni energía. La velocidad depende del gradiente de concentración, la temperatura y el coeficiente de partición lípido/agua de la molécula.</p>
       </div>
       <div class="card">
         <h4>Difusión facilitada</h4>
-        <p>Moléculas polares o iones atraviesan la membrana a favor de gradiente mediante proteínas canal (acuaporinas, canales iónicos) o proteínas transportadoras (GLUT para glucosa).</p>
+        <p>Moléculas polares grandes o iones que no pueden atravesar directamente la bicapa lo hacen a favor de gradiente mediante <strong>proteínas de transporte</strong>: (1) <strong>Proteínas canal</strong>: forman poros acuosos selectivos; abren o cierran en respuesta a estímulos (voltaje-dependientes, ligando-dependientes, mecánico-dependientes). Ejemplos: canales iónicos de Na⁺, K⁺, Ca²⁺, Cl⁻; <strong>acuaporinas</strong> (canales de agua en glóbulos rojos, túbulo renal, varicelas de planta). (2) <strong>Proteínas transportadoras (carriers)</strong>: se unen al soluto y cambian de conformación para translocarlo. Ejemplo: <strong>GLUT1-4</strong> para glucosa (distintas isoformas con distintas afinidades y distribución tisular).</p>
       </div>
       <div class="card">
         <h4>Ósmosis</h4>
-        <p>Difusión del agua a través de la membrana semipermeable desde donde hay menor concentración de solutos hacia donde hay mayor concentración.</p>
+        <p>Difusión del <strong>solvente</strong> (agua) a través de una membrana semipermeable desde donde hay menor concentración de solutos (hipotónico) hacia donde hay mayor concentración de solutos (hipertónico), hasta igualar la concentración. En células animales en solución hipotónica, el agua entra y la célula puede lisar (<strong>hemólisis</strong>). En solución hipertónica, el agua sale y la célula se cona (<strong>crenación</strong>). En células vegetales, la pared celular impide la lisis; en solución hipotónica la célula se turgente; en hipertónica se produce <strong>plasmólisis</strong> (membrana se separa de la pared).</p>
       </div>
     </div>
 
-    <div class="subsection-title">Transporte activo (con gasto de ATP)</div>
+    <div class="subsection-title">Transporte activo (con gasto de ATP — en contra del gradiente)</div>
     <div class="cards">
       <div class="card">
         <h4>Transporte activo primario</h4>
-        <p>La energía del ATP mueve sustancias en contra de su gradiente electroquímico. Ej.: bomba Na⁺/K⁺-ATPasa (expulsa 3 Na⁺ e introduce 2 K⁺ por ciclo).</p>
+        <p>La energía de la <strong>hidrólisis de ATP</strong> directamente mueve sustancias <strong>en contra</strong> de su gradiente electroquímico. El ejemplo más importante es la <strong>bomba Na⁺/K⁺-ATPasa</strong>: expulsa 3 Na⁺ al exterior e introduce 2 K⁺ al interior por cada ATP hidrolizado. Mantiene el gradiente iónico esencial para el potencial de membrana, la excitabilidad celular, el transporte secundario y el volumen celular. Otras bombas: Ca²⁺-ATPasa (SERCA, en retículo sarcoplásmico), H⁺-ATPasa (en lisosomas y estómago), bomba de protones en mitocondria (durante la síntesis de ATP opera en sentido contrario, como ATP sintasa).</p>
       </div>
       <div class="card">
-        <h4>Transporte activo secundario</h4>
-        <p>Aprovecha el gradiente electroquímico generado por el transporte primario. Simporte (misma dirección) y antiporte (dirección opuesta). Ej.: cotransportador Na⁺/glucosa.</p>
+        <h4>Transporte activo secundario (cotransporte)</h4>
+        <p>No usa ATP directamente, sino que aprovecha el gradiente electroquímico generado por el transporte activo primario (principalmente el gradiente de Na⁺ mantenido por la bomba Na⁺/K⁺-ATPasa). Dos tipos: <strong>simporte</strong> (cotransportador): la molécula se mueve en la <strong>misma dirección</strong> que el ion impulsor. Ej.: cotransportador Na⁺/glucosa (SGLT1) en intestino y túbulo renal: el Na⁺ entra a favor de gradiente arrastrando glucosa en contra de su gradiente. <strong>Antiporte</strong>: la molécula se mueve en dirección <strong>opuesta</strong> al ion. Ej.: intercambiador Na⁺/Ca²⁺ (NCX) en músculo cardíaco.</p>
       </div>
     </div>
 
@@ -1244,11 +1259,11 @@ graph TD
     <div class="cards">
       <div class="card">
         <h4>Endocitosis</h4>
-        <p>La membrana se invagina para internalizar material: <em>fagocitosis</em> (partículas grandes), <em>pinocitosis</em> (fluidos y solutos), <em>endocitosis mediada por receptor</em> (clathrina).</p>
+        <p>La membrana plasmática se <strong>invagina y pincha</strong> formando vesículas que internalizan material del exterior. Tres tipos: (1) <strong>Fagocitosis</strong>: ingesta de partículas grandes (bacterias, células muertas, >0,5 µm). Mediada por pseudópodos de actina. Exclusiva de células especializadas (macrófagos, neutrófilos). El fagosoma se fusiona con el lisosoma → fagolisosoma. (2) <strong>Pinocitosis</strong>: ingesta de fluido extracelular y solutos disueltos en vesículas pequeñas (~0,1 µm). Ocurre en casi todas las células. (3) <strong>Endocitosis mediada por receptor</strong>: ligandos específicos (LDL, transferrina, factores de crecimiento) se unen a receptores concentrados en <strong>fosas revestidas de clatrina</strong> (coated pits). La clatrina impulsa la curvatura y gemación de la vesícula. Tras la fusión con endosomas, los receptores se reciclan a la membrana y los ligandos se dirigen a los lisosomas.</p>
       </div>
       <div class="card">
         <h4>Exocitosis</h4>
-        <p>Vesículas de secreción se fusionan con la membrana plasmática y liberan su contenido al exterior. Fundamental en secreción de neurotransmisores y hormonas.</p>
+        <p>Vesículas citoplasmáticas se fusionan con la <strong>membrana plasmática</strong> y liberan su contenido al exterior. Dos tipos: (1) <strong>Exocitosis constitutiva</strong>: continua, sin estímulo; renueva componentes de la membrana plasmática y secreta proteínas de la matriz extracelular (colágeno, fibronectina). (2) <strong>Exocitosis regulada</strong>: las vesículas se almacenan hasta recibir una señal (aumento de Ca²⁺ intracelular u otro segundo mensajero). Fundamental en: liberación de <strong>neurotransmisores</strong> en la sinapsis, secreción de <strong>hormonas peptídicas</strong> (insulina), liberación de <strong>gránulos de histamina</strong> en mastocitos (respuesta alérgica), secreción de <strong>enzimas digestivas</strong> en células acinares pancreáticas.</p>
       </div>
     </div>
 
