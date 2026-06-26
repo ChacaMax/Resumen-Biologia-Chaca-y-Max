@@ -132,7 +132,7 @@
     }
     .ext-pdf { background: #fde8e8; color: #c0392b; }
     .ext-docx { background: #e8eeff; color: #2563eb; }
-    .ext-pptx { background: #fff3e0; color: #e65c00; }
+    .ext-pptx, .ext-ppt { background: #fff3e0; color: #e65c00; }
     .file-chip span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* ===== SECTION ===== */
@@ -214,6 +214,7 @@
     /* ===== DIVIDER ===== */
     hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 
+    /* ===== DIAGRAM IMAGES ===== */
     /* ===== EJERCICIOS ===== */
     .ej-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -535,6 +536,7 @@
   </div>
   <nav>
     <div class="section-label">Índice</div>
+    <a href="parcial2.html"><span class="icon">📄</span>Ir a Parcial 2</a>
     <a href="#archivos"><span class="icon">📁</span>Archivos</a>
 
     <div class="section-label">Unidades</div>
@@ -578,7 +580,7 @@
   <!-- TOP BAR -->
   <div id="topbar">
     <div>
-      <h2>Resumen de Biología General</h2>
+      <h2>Biología — Parcial 1</h2>
       <p>16 archivos &nbsp;·&nbsp; Definiciones detalladas &nbsp;·&nbsp; Mapas conceptuales</p>
     </div>
     <button id="btn-pdf" onclick="window.print()">
@@ -586,9 +588,9 @@
     </button>
   </div>
 
-  <!-- ARCHIVOS -->
+  <!-- ARCHIVOS PARCIAL 1 -->
   <div id="archivos" class="section">
-    <div class="section-title">📁 Archivos de la carpeta</div>
+    <div class="section-title">📁 BIOLOGIA PARCIAL 1</div>
     <div id="file-index">
       <a class="file-chip" href="#u1"><span class="ext ext-pdf">PDF</span><span>Teórica 1 — Unidad 1</span></a>
       <a class="file-chip" href="#clasificacion"><span class="ext ext-pdf">PDF</span><span>Clasificación de seres vivos</span></a>
@@ -608,6 +610,8 @@
       <a class="file-chip" href="#actividades"><span class="ext ext-docx">DOCX</span><span>Actividad Organización Celular</span></a>
     </div>
   </div>
+
+
 
   <!-- ================================
        UNIDAD 1 — BIOLOGÍA GENERAL
@@ -2140,8 +2144,6 @@ graph LR
     <button class="ej-check-all" onclick="calcFinalScore()">📊 Ver puntuación total</button>
     <button class="ej-reset" onclick="resetAll()">↺ Reiniciar todo</button>
   </div>
-
-  </section>
 
 </main>
 
